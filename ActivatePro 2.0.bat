@@ -130,109 +130,21 @@ if "%cmd%"=="" (
 	echo.
 	goto command
 ) else if "%cmd%"=="activate windows home" (
-	echo Getting OS Info...
-	timeout /t 3 > nul
-	for /f "tokens=2 delims==" %%i in ('wmic os get caption /value') do set os=%%i
-	if "%os%" == "Microsoft Windows 11 Home" (
-		goto home
-	) else if "%os%" == "Microsoft Windows 10 Home" (
-		goto home
-	) else (
-		echo [38;5;196mError: Incorrect Windows Edition.[0m
-		echo.
-	)
-	goto command
+	goto home
 ) else if "%cmd%"=="activate windows homeN" (
-	echo Getting OS Info...
-	timeout /t 3 > nul
-	for /f "tokens=2 delims==" %%i in ('wmic os get caption /value') do set os=%%i
-	if "%os%" == "Microsoft Windows 11 Home N" (
-		goto home-n
-	) else if "%os%" == "Microsoft Windows 10 Home N" (
-		goto home-n
-	) else (
-		echo [38;5;196mError: Incorrect Windows Edition.[0m
-		echo.
-	)
-	goto command
+	goto home-n
 ) else if "%cmd%"=="activate windows pro" (
-	echo Getting OS Info...
-	timeout /t 3 > nul
-	for /f "tokens=2 delims==" %%i in ('wmic os get caption /value') do set os=%%i
-	if "%os%" == "Microsoft Windows 11 Pro" (
-		goto pro
-	) else if "%os%" == "Microsoft Windows 10 Pro" (
-		goto pro
-	) else (
-		echo [38;5;196mError: Incorrect Windows Edition.[0m
-		echo.
-	)
-	goto command
+	goto pro
 ) else if "%cmd%"=="activate windows proN" (
-	echo Getting OS Info...
-	timeout /t 3 > nul
-	for /f "tokens=2 delims==" %%i in ('wmic os get caption /value') do set os=%%i
-	if "%os%" == "Microsoft Windows 11 Pro N" (
-		goto pro-n
-	) else if "%os%" == "Microsoft Windows 10 Pro N" (
-		goto pro-n
-	) else (
-		echo [38;5;196mError: Incorrect Windows Edition.[0m
-		echo.
-	)
-	goto command
+	goto pro-n
 ) else if "%cmd%"=="activate windows enterprise" (
-	echo Getting OS Info...
-	timeout /t 3 > nul
-	for /f "tokens=2 delims==" %%i in ('wmic os get caption /value') do set os=%%i
-	if "%os%" == "Microsoft Windows 11 Enterprise" (
-		goto enterprise
-	) else if "%os%" == "Microsoft Windows 10 Enterprise" (
-		goto enterprise
-	) else (
-		echo [38;5;196mError: Incorrect Windows Edition.[0m
-		echo.
-	)
-	goto command
+	goto enterprise
 ) else if "%cmd%"=="activate windows enterpriseN" (
-	echo Getting OS Info...
-	timeout /t 3 > nul
-	for /f "tokens=2 delims==" %%i in ('wmic os get caption /value') do set os=%%i
-	if "%os%" == "Microsoft Windows 11 Enterprise N" (
-		goto enterprise-n
-	) else if "%os%" == "Microsoft Windows 10 Enterprise N" (
-		goto enterprise-n
-	) else (
-		echo [38;5;196mError: Incorrect Windows Edition.[0m
-		echo.
-	)
-	goto command
+	enterprise-n
 ) else if "%cmd%"=="activate windows education" (
-	echo Getting OS Info...
-	timeout /t 3 > nul
-	for /f "tokens=2 delims==" %%i in ('wmic os get caption /value') do set os=%%i
-	if "%os%" == "Microsoft Windows 11 Education" (
-		goto education
-	) else if "%os%" == "Microsoft Windows 10 Education" (
-		goto education
-	) else (
-		echo [38;5;196mError: Incorrect Windows Edition.[0m
-		echo.
-	)
-	goto command
+	goto education
 ) else if "%cmd%"=="activate windows educationN" (
-	echo Getting OS Info...
-	timeout /t 3 > nul
-	for /f "tokens=2 delims==" %%i in ('wmic os get caption /value') do set os=%%i
-	if "%os%" == "Microsoft Windows 11 Education N" (
-		goto education-n
-	) else if "%os%" == "Microsoft Windows 10 Education N" (
-		goto education-n
-	) else (
-		echo [38;5;196mError: Incorrect Windows Edition.[0m
-		echo.
-	)
-	goto command
+	goto education-n
 ) else if "%cmd%"=="activate office14" (
 	goto office14
 ) else if "%cmd%"=="activate office15" (
@@ -257,437 +169,949 @@ if "%cmd%"=="" (
 
 REM Activation Commands for Windows Editions
 :home
-echo Started on %date% at %time% >> %logFile%
-echo. >> %logFile%
-echo Checking if the computer is connected to the internet. >> %logFile%
-echo Running: ping google.com -n 4 > nul >> %logFile%
-ping google.com -n 4 > nul
-if %errorlevel% == 0 (
-	title Activating Windows Home...
-	echo Activating Windows Home Edition...
-	echo Activating Windows Home Edition... >> %logFile%
-	timeout /t 1 > nul
-	echo Uninstalling product key...
-	echo Uninstalling product key... >> %logFile%
-	slmgr -upk
-	echo Running: slmgr -upk >> %logFile%
-	echo Installing new product key...
-	echo Installing new product key... >> %logFile%
-	slmgr.vbs /ipk TX9XD-98N7V-6WMQ6-BX7FG-H8Q99
-	echo Running: slmgr.vbs /ipk TX9XD-98N7V-6WMQ6-BX7FG-H8Q99 >> %logFile%
-	echo Setting KMS machine name...
-	echo Setting KMS machine name... >> %logFile%
-	slmgr /skms kms8.msguides.com
-	echo Running: slmgr /skms kms8.msguides.com >> %logFile%
-	echo Attempting to activate Microsoft Windows...
-	echo Attempting to activate Microsoft Windows... >> %logFile%
-	slmgr /ato
-	echo Running: slmgr /ato >> %logFile%
-	echo.
-	echo [38;5;10mActivated Microsoft Windows successfully.[0m.
-	echo Activated Microsoft Windows successfully. >> %logFile%
+echo Getting OS Info...
+timeout /t 3 > nul
+for /f "tokens=2 delims==" %%i in ('wmic os get caption /value') do set os=%%i
+if "%os%" == "Microsoft Windows 11 Home" (
+	echo Started on %date% at %time% >> %logFile%
 	echo. >> %logFile%
-	echo.
-	echo Activation log file generated. Enter "activatepro show log" to see.
-	echo.
-	if %autoMode% == 1 (
-		goto officeAuto
-	) else (
-		if %cliMode%==1 (
-			goto command
+	echo Checking if the computer is connected to the internet. >> %logFile%
+	echo Running: ping google.com -n 4 > nul >> %logFile%
+	ping google.com -n 4 > nul
+	if %errorlevel% == 0 (
+		title Activating Windows Home...
+		echo Activating Windows Home Edition...
+		echo Activating Windows Home Edition... >> %logFile%
+		timeout /t 1 > nul
+		echo Uninstalling product key...
+		echo Uninstalling product key... >> %logFile%
+		slmgr -upk
+		echo Running: slmgr -upk >> %logFile%
+		echo Installing new product key...
+		echo Installing new product key... >> %logFile%
+		slmgr.vbs /ipk TX9XD-98N7V-6WMQ6-BX7FG-H8Q99
+		echo Running: slmgr.vbs /ipk TX9XD-98N7V-6WMQ6-BX7FG-H8Q99 >> %logFile%
+		echo Setting KMS machine name...
+		echo Setting KMS machine name... >> %logFile%
+		slmgr /skms kms8.msguides.com
+		echo Running: slmgr /skms kms8.msguides.com >> %logFile%
+		echo Attempting to activate Microsoft Windows...
+		echo Attempting to activate Microsoft Windows... >> %logFile%
+		slmgr /ato
+		echo Running: slmgr /ato >> %logFile%
+		echo.
+		echo [38;5;10mActivated Microsoft Windows successfully.[0m.
+		echo Activated Microsoft Windows successfully. >> %logFile%
+		echo. >> %logFile%
+		echo.
+		echo Activation log file generated. Enter "activatepro show log" to see.
+		echo.
+		if %autoMode% == 1 (
+			goto officeAuto
 		) else (
-			cls
-			echo [38;5;10mMicrosoft Windows Pro Activated Successfully!
-			echo Press any key to continue.[0m
-			pause > nul
-			timeout /t 2
-			goto gui
+			if %cliMode%==1 (
+				goto command
+			) else (
+				cls
+				echo [38;5;10mMicrosoft Windows Activated Successfully!
+				echo Press any key to continue.[0m
+				pause > nul
+				timeout /t 2
+				goto gui
+			)
 		)
+	) else (
+		goto internetError
+	)
+) else if "%os%" == "Microsoft Windows 10 Home" (
+	echo Started on %date% at %time% >> %logFile%
+	echo. >> %logFile%
+	echo Checking if the computer is connected to the internet. >> %logFile%
+	echo Running: ping google.com -n 4 > nul >> %logFile%
+	ping google.com -n 4 > nul
+	if %errorlevel% == 0 (
+		title Activating Windows Home...
+		echo Activating Windows Home Edition...
+		echo Activating Windows Home Edition... >> %logFile%
+		timeout /t 1 > nul
+		echo Uninstalling product key...
+		echo Uninstalling product key... >> %logFile%
+		slmgr -upk
+		echo Running: slmgr -upk >> %logFile%
+		echo Installing new product key...
+		echo Installing new product key... >> %logFile%
+		slmgr.vbs /ipk TX9XD-98N7V-6WMQ6-BX7FG-H8Q99
+		echo Running: slmgr.vbs /ipk TX9XD-98N7V-6WMQ6-BX7FG-H8Q99 >> %logFile%
+		echo Setting KMS machine name...
+		echo Setting KMS machine name... >> %logFile%
+		slmgr /skms kms8.msguides.com
+		echo Running: slmgr /skms kms8.msguides.com >> %logFile%
+		echo Attempting to activate Microsoft Windows...
+		echo Attempting to activate Microsoft Windows... >> %logFile%
+		slmgr /ato
+		echo Running: slmgr /ato >> %logFile%
+		echo.
+		echo [38;5;10mActivated Microsoft Windows successfully.[0m.
+		echo Activated Microsoft Windows successfully. >> %logFile%
+		echo. >> %logFile%
+		echo.
+		echo Activation log file generated. Enter "activatepro show log" to see.
+		echo.
+		if %autoMode% == 1 (
+			goto officeAuto
+		) else (
+			if %cliMode%==1 (
+				goto command
+			) else (
+				cls
+				echo [38;5;10mMicrosoft Windows Activated Successfully!
+				echo Press any key to continue.[0m
+				pause > nul
+				timeout /t 2
+				goto gui
+			)
+		)
+	) else (
+		goto internetError
 	)
 ) else (
-	goto internetError
+	echo [38;5;196mError: Incorrect Windows Edition.[0m
+	if %cliMode% == 1 (
+		echo.
+		goto command
+	) else (
+		echo Press any key to continue!
+		pause > nul
+		goto guiWindows
+	)
 )
-goto command
 
 :home-n
-echo Started on %date% at %time% >> %logFile%
-echo. >> %logFile%
-echo Checking if the computer is connected to the internet. >> %logFile%
-echo Running: ping google.com -n 4 > nul >> %logFile%
-ping google.com -n 4 > nul
-if %errorlevel% == 0 (
-	title Activating Windows Home N...
-	echo Activating Windows Home N Edition...
-	echo Activating Windows Home N Edition... >> %logFile%
-	timeout /t 1 > nul
-	echo Uninstalling product key...
-	echo Uninstalling product key... >> %logFile%
-	slmgr -upk
-	echo Running: slmgr -upk >> %logFile%
-	echo Installing new product key...
-	echo Installing new product key... >> %logFile%
-	slmgr.vbs /ipk 3KHY7-WNT83-DGQKR-F7HPR-844BM
-	echo Running: slmgr.vbs /ipk 3KHY7-WNT83-DGQKR-F7HPR-844BM >> %logFile%
-	echo Setting KMS machine name...
-	echo Setting KMS machine name... >> %logFile%
-	slmgr /skms kms8.msguides.com
-	echo Running: slmgr /skms kms8.msguides.com >> %logFile%
-	echo Attempting to activate Microsoft Windows...
-	echo Attempting to activate Microsoft Windows... >> %logFile%
-	slmgr /ato
-	echo Running: slmgr /ato >> %logFile%
-	echo.
-	echo [38;5;10mActivated Microsoft Windows successfully.[0m
-	echo Activated Microsoft Windows successfully. >> %logFile%
+echo Getting OS Info...
+timeout /t 3 > nul
+for /f "tokens=2 delims==" %%i in ('wmic os get caption /value') do set os=%%i
+if "%os%" == "Microsoft Windows 11 Home N" (
+	echo Started on %date% at %time% >> %logFile%
 	echo. >> %logFile%
-	echo.
-	echo Activation log file generated. Enter "activatepro show log" to see.
-	echo.
-	if %autoMode% == 1 (
-		goto officeAuto
-	) else (
-		if %cliMode%==1 (
-			goto command
+	echo Checking if the computer is connected to the internet. >> %logFile%
+	echo Running: ping google.com -n 4 > nul >> %logFile%
+	ping google.com -n 4 > nul
+	if %errorlevel% == 0 (
+		title Activating Windows Home N...
+		echo Activating Windows Home N Edition...
+		echo Activating Windows Home N Edition... >> %logFile%
+		timeout /t 1 > nul
+		echo Uninstalling product key...
+		echo Uninstalling product key... >> %logFile%
+		slmgr -upk
+		echo Running: slmgr -upk >> %logFile%
+		echo Installing new product key...
+		echo Installing new product key... >> %logFile%
+		slmgr.vbs /ipk 3KHY7-WNT83-DGQKR-F7HPR-844BM
+		echo Running: slmgr.vbs /ipk 3KHY7-WNT83-DGQKR-F7HPR-844BM >> %logFile%
+		echo Setting KMS machine name...
+		echo Setting KMS machine name... >> %logFile%
+		slmgr /skms kms8.msguides.com
+		echo Running: slmgr /skms kms8.msguides.com >> %logFile%
+		echo Attempting to activate Microsoft Windows...
+		echo Attempting to activate Microsoft Windows... >> %logFile%
+		slmgr /ato
+		echo Running: slmgr /ato >> %logFile%
+		echo.
+		echo [38;5;10mActivated Microsoft Windows successfully.[0m.
+		echo Activated Microsoft Windows successfully. >> %logFile%
+		echo. >> %logFile%
+		echo.
+		echo Activation log file generated. Enter "activatepro show log" to see.
+		echo.
+		if %autoMode% == 1 (
+			goto officeAuto
 		) else (
-			cls
-			echo [38;5;10mMicrosoft Windows Pro Activated Successfully!
-			echo Press any key to continue.[0m
-			pause > nul
-			timeout /t 2
-			goto gui
+			if %cliMode%==1 (
+				goto command
+			) else (
+				cls
+				echo [38;5;10mMicrosoft Windows Activated Successfully!
+				echo Press any key to continue.[0m
+				pause > nul
+				timeout /t 2
+				goto gui
+			)
 		)
+	) else (
+		goto internetError
+	)
+) else if "%os%" == "Microsoft Windows 10 Home N" (
+	echo Started on %date% at %time% >> %logFile%
+	echo. >> %logFile%
+	echo Checking if the computer is connected to the internet. >> %logFile%
+	echo Running: ping google.com -n 4 > nul >> %logFile%
+	ping google.com -n 4 > nul
+	if %errorlevel% == 0 (
+		title Activating Windows Home N...
+		echo Activating Windows Home N Edition...
+		echo Activating Windows Home N Edition... >> %logFile%
+		timeout /t 1 > nul
+		echo Uninstalling product key...
+		echo Uninstalling product key... >> %logFile%
+		slmgr -upk
+		echo Running: slmgr -upk >> %logFile%
+		echo Installing new product key...
+		echo Installing new product key... >> %logFile%
+		slmgr.vbs /ipk 3KHY7-WNT83-DGQKR-F7HPR-844BM
+		echo Running: slmgr.vbs /ipk 3KHY7-WNT83-DGQKR-F7HPR-844BM >> %logFile%
+		echo Setting KMS machine name...
+		echo Setting KMS machine name... >> %logFile%
+		slmgr /skms kms8.msguides.com
+		echo Running: slmgr /skms kms8.msguides.com >> %logFile%
+		echo Attempting to activate Microsoft Windows...
+		echo Attempting to activate Microsoft Windows... >> %logFile%
+		slmgr /ato
+		echo Running: slmgr /ato >> %logFile%
+		echo.
+		echo [38;5;10mActivated Microsoft Windows successfully.[0m.
+		echo Activated Microsoft Windows successfully. >> %logFile%
+		echo. >> %logFile%
+		echo.
+		echo Activation log file generated. Enter "activatepro show log" to see.
+		echo.
+		if %autoMode% == 1 (
+			goto officeAuto
+		) else (
+			if %cliMode%==1 (
+				goto command
+			) else (
+				cls
+				echo [38;5;10mMicrosoft Windows Activated Successfully!
+				echo Press any key to continue.[0m
+				pause > nul
+				timeout /t 2
+				goto gui
+			)
+		)
+	) else (
+		goto internetError
 	)
 ) else (
-	goto internetError
+	echo [38;5;196mError: Incorrect Windows Edition.[0m
+	if %cliMode% == 1 (
+		echo.
+		goto command
+	) else (
+		echo Press any key to continue!
+		pause > nul
+		goto guiWindows
+	)
 )
-goto command
 
 :pro
-echo Started on %date% at %time% >> %logFile%
-echo. >> %logFile%
-echo Checking if the computer is connected to the internet. >> %logFile%
-echo Running: ping google.com -n 4 > nul >> %logFile%
-ping google.com -n 4 > nul
-if %errorlevel% == 0 (
-	title Activating Windows Pro...
-	echo Activating Windows Pro Edition...
-	echo Activating Windows Pro Edition... >> %logFile%
-	timeout /t 1 > nul
-	echo Uninstalling product key...
-	echo Uninstalling product key... >> %logFile%
-	slmgr -upk
-	echo Running: slmgr -upk >> %logFile%
-	echo Installing new product key...
-	echo Installing new product key... >> %logFile%
-	slmgr.vbs /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX
-	echo Running: slmgr.vbs /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX >> %logFile%
-	echo Setting KMS machine name...
-	echo Setting KMS machine name... >> %logFile%
-	slmgr /skms kms8.msguides.com
-	echo Running: slmgr /skms kms8.msguides.com >> %logFile%
-	echo Attempting to activate Microsoft Windows...
-	echo Attempting to activate Microsoft Windows... >> %logFile%
-	slmgr /ato
-	echo Running: slmgr /ato >> %logFile%
-	echo.
-	echo [38;5;10mActivated Microsoft Windows successfully.[0m
-	echo Activated Microsoft Windows successfully. >> %logFile%
+echo Getting OS Info...
+timeout /t 3 > nul
+for /f "tokens=2 delims==" %%i in ('wmic os get caption /value') do set os=%%i
+if "%os%" == "Microsoft Windows 11 Pro" (
+	echo Started on %date% at %time% >> %logFile%
 	echo. >> %logFile%
-	echo.
-	echo Activation log file generated. Enter "activatepro show log" to see.
-	echo.
-	if %autoMode% == 1 (
-		goto officeAuto
-	) else (
-		if %cliMode%==1 (
-			goto command
+	echo Checking if the computer is connected to the internet. >> %logFile%
+	echo Running: ping google.com -n 4 > nul >> %logFile%
+	ping google.com -n 4 > nul
+	if %errorlevel% == 0 (
+		title Activating Windows Pro...
+		echo Activating Windows Pro Edition...
+		echo Activating Windows Pro Edition... >> %logFile%
+		timeout /t 1 > nul
+		echo Uninstalling product key...
+		echo Uninstalling product key... >> %logFile%
+		slmgr -upk
+		echo Running: slmgr -upk >> %logFile%
+		echo Installing new product key...
+		echo Installing new product key... >> %logFile%
+		slmgr.vbs /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX
+		echo Running: slmgr.vbs /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX >> %logFile%
+		echo Setting KMS machine name...
+		echo Setting KMS machine name... >> %logFile%
+		slmgr /skms kms8.msguides.com
+		echo Running: slmgr /skms kms8.msguides.com >> %logFile%
+		echo Attempting to activate Microsoft Windows...
+		echo Attempting to activate Microsoft Windows... >> %logFile%
+		slmgr /ato
+		echo Running: slmgr /ato >> %logFile%
+		echo.
+		echo [38;5;10mActivated Microsoft Windows successfully.[0m.
+		echo Activated Microsoft Windows successfully. >> %logFile%
+		echo. >> %logFile%
+		echo.
+		echo Activation log file generated. Enter "activatepro show log" to see.
+		echo.
+		if %autoMode% == 1 (
+			goto officeAuto
 		) else (
-			cls
-			echo [38;5;10mMicrosoft Windows Pro Activated Successfully!
-			echo Press any key to continue.[0m
-			pause > nul
-			timeout /t 2
-			goto gui
+			if %cliMode%==1 (
+				goto command
+			) else (
+				cls
+				echo [38;5;10mMicrosoft Windows Activated Successfully!
+				echo Press any key to continue.[0m
+				pause > nul
+				timeout /t 2
+				goto gui
+			)
 		)
+	) else (
+		goto internetError
+	)
+) else if "%os%" == "Microsoft Windows 10 Pro" (
+	echo Started on %date% at %time% >> %logFile%
+	echo. >> %logFile%
+	echo Checking if the computer is connected to the internet. >> %logFile%
+	echo Running: ping google.com -n 4 > nul >> %logFile%
+	ping google.com -n 4 > nul
+	if %errorlevel% == 0 (
+		title Activating Windows Pro...
+		echo Activating Windows Pro Edition...
+		echo Activating Windows Pro Edition... >> %logFile%
+		timeout /t 1 > nul
+		echo Uninstalling product key...
+		echo Uninstalling product key... >> %logFile%
+		slmgr -upk
+		echo Running: slmgr -upk >> %logFile%
+		echo Installing new product key...
+		echo Installing new product key... >> %logFile%
+		slmgr.vbs /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX
+		echo Running: slmgr.vbs /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX >> %logFile%
+		echo Setting KMS machine name...
+		echo Setting KMS machine name... >> %logFile%
+		slmgr /skms kms8.msguides.com
+		echo Running: slmgr /skms kms8.msguides.com >> %logFile%
+		echo Attempting to activate Microsoft Windows...
+		echo Attempting to activate Microsoft Windows... >> %logFile%
+		slmgr /ato
+		echo Running: slmgr /ato >> %logFile%
+		echo.
+		echo [38;5;10mActivated Microsoft Windows successfully.[0m.
+		echo Activated Microsoft Windows successfully. >> %logFile%
+		echo. >> %logFile%
+		echo.
+		echo Activation log file generated. Enter "activatepro show log" to see.
+		echo.
+		if %autoMode% == 1 (
+			goto officeAuto
+		) else (
+			if %cliMode%==1 (
+				goto command
+			) else (
+				cls
+				echo [38;5;10mMicrosoft Windows Activated Successfully!
+				echo Press any key to continue.[0m
+				pause > nul
+				timeout /t 2
+				goto gui
+			)
+		)
+	) else (
+		goto internetError
 	)
 ) else (
-	goto internetError
+	echo [38;5;196mError: Incorrect Windows Edition.[0m
+	if %cliMode% == 1 (
+		echo.
+		goto command
+	) else (
+		echo Press any key to continue!
+		pause > nul
+		goto guiWindows
+	)
 )
 
 
 :pro-n
-echo Started on %date% at %time% >> %logFile%
-echo. >> %logFile%
-echo Checking if the computer is connected to the internet. >> %logFile%
-echo Running: ping google.com -n 4 > nul >> %logFile%
-ping google.com -n 4 > nul
-if %errorlevel% == 0 (
-	title Activating Windows Pro N...
-	echo Activating Windows Pro N Edition...
-	echo Activating Windows Pro N Edition... >> %logFile%
-	timeout /t 1 > nul
-	echo Uninstalling product key...
-	echo Uninstalling product key... >> %logFile%
-	slmgr -upk
-	echo Running: slmgr -upk >> %logFile%
-	echo Installing new product key...
-	echo Installing new product key... >> %logFile%
-	slmgr.vbs /ipk MH37W-N47XK-V7XM9-C7227-GCQG9
-	echo Running: slmgr.vbs /ipk MH37W-N47XK-V7XM9-C7227-GCQG9 >> %logFile%
-	echo Setting KMS machine name...
-	echo Setting KMS machine name... >> %logFile%
-	slmgr /skms kms8.msguides.com
-	echo Running: slmgr /skms kms8.msguides.com >> %logFile%
-	echo Attempting to activate Microsoft Windows...
-	echo Attempting to activate Microsoft Windows... >> %logFile%
-	slmgr /ato
-	echo Running: slmgr /ato >> %logFile%
-	echo.
-	echo [38;5;10mActivated Microsoft Windows successfully.[0m
-	echo Activated Microsoft Windows successfully. >> %logFile%
+echo Getting OS Info...
+timeout /t 3 > nul
+for /f "tokens=2 delims==" %%i in ('wmic os get caption /value') do set os=%%i
+if "%os%" == "Microsoft Windows 11 Pro N" (
+	echo Started on %date% at %time% >> %logFile%
 	echo. >> %logFile%
-	echo.
-	echo Activation log file generated. Enter "activatepro show log" to see.
-	echo.
-	if %autoMode% == 1 (
-		goto officeAuto
-	) else (
-		if %cliMode%==1 (
-			goto command
+	echo Checking if the computer is connected to the internet. >> %logFile%
+	echo Running: ping google.com -n 4 > nul >> %logFile%
+	ping google.com -n 4 > nul
+	if %errorlevel% == 0 (
+		title Activating Windows Pro N...
+		echo Activating Windows Pro N Edition...
+		echo Activating Windows Pro N Edition... >> %logFile%
+		timeout /t 1 > nul
+		echo Uninstalling product key...
+		echo Uninstalling product key... >> %logFile%
+		slmgr -upk
+		echo Running: slmgr -upk >> %logFile%
+		echo Installing new product key...
+		echo Installing new product key... >> %logFile%
+		slmgr.vbs /ipk MH37W-N47XK-V7XM9-C7227-GCQG9
+		echo Running: slmgr.vbs /ipk MH37W-N47XK-V7XM9-C7227-GCQG9 >> %logFile%
+		echo Setting KMS machine name...
+		echo Setting KMS machine name... >> %logFile%
+		slmgr /skms kms8.msguides.com
+		echo Running: slmgr /skms kms8.msguides.com >> %logFile%
+		echo Attempting to activate Microsoft Windows...
+		echo Attempting to activate Microsoft Windows... >> %logFile%
+		slmgr /ato
+		echo Running: slmgr /ato >> %logFile%
+		echo.
+		echo [38;5;10mActivated Microsoft Windows successfully.[0m.
+		echo Activated Microsoft Windows successfully. >> %logFile%
+		echo. >> %logFile%
+		echo.
+		echo Activation log file generated. Enter "activatepro show log" to see.
+		echo.
+		if %autoMode% == 1 (
+			goto officeAuto
 		) else (
-			cls
-			echo [38;5;10mMicrosoft Windows Pro Activated Successfully!
-			echo Press any key to continue.[0m
-			pause > nul
-			timeout /t 2
-			goto gui
+			if %cliMode%==1 (
+				goto command
+			) else (
+				cls
+				echo [38;5;10mMicrosoft Windows Activated Successfully!
+				echo Press any key to continue.[0m
+				pause > nul
+				timeout /t 2
+				goto gui
+			)
 		)
+	) else (
+		goto internetError
+	)
+) else if "%os%" == "Microsoft Windows 10 Pro N" (
+	echo Started on %date% at %time% >> %logFile%
+	echo. >> %logFile%
+	echo Checking if the computer is connected to the internet. >> %logFile%
+	echo Running: ping google.com -n 4 > nul >> %logFile%
+	ping google.com -n 4 > nul
+	if %errorlevel% == 0 (
+		title Activating Windows Pro N...
+		echo Activating Windows Pro N Edition...
+		echo Activating Windows Pro N Edition... >> %logFile%
+		timeout /t 1 > nul
+		echo Uninstalling product key...
+		echo Uninstalling product key... >> %logFile%
+		slmgr -upk
+		echo Running: slmgr -upk >> %logFile%
+		echo Installing new product key...
+		echo Installing new product key... >> %logFile%
+		slmgr.vbs /ipk MH37W-N47XK-V7XM9-C7227-GCQG9
+		echo Running: slmgr.vbs /ipk MH37W-N47XK-V7XM9-C7227-GCQG9 >> %logFile%
+		echo Setting KMS machine name...
+		echo Setting KMS machine name... >> %logFile%
+		slmgr /skms kms8.msguides.com
+		echo Running: slmgr /skms kms8.msguides.com >> %logFile%
+		echo Attempting to activate Microsoft Windows...
+		echo Attempting to activate Microsoft Windows... >> %logFile%
+		slmgr /ato
+		echo Running: slmgr /ato >> %logFile%
+		echo.
+		echo [38;5;10mActivated Microsoft Windows successfully.[0m.
+		echo Activated Microsoft Windows successfully. >> %logFile%
+		echo. >> %logFile%
+		echo.
+		echo Activation log file generated. Enter "activatepro show log" to see.
+		echo.
+		if %autoMode% == 1 (
+			goto officeAuto
+		) else (
+			if %cliMode%==1 (
+				goto command
+			) else (
+				cls
+				echo [38;5;10mMicrosoft Windows Activated Successfully!
+				echo Press any key to continue.[0m
+				pause > nul
+				timeout /t 2
+				goto gui
+			)
+		)
+	) else (
+		goto internetError
 	)
 ) else (
-	goto internetError
+	echo [38;5;196mError: Incorrect Windows Edition.[0m
+	if %cliMode% == 1 (
+		echo.
+		goto command
+	) else (
+		echo Press any key to continue!
+		pause > nul
+		goto guiWindows
+	)
 )
-goto command
 
 :enterprise
-echo Started on %date% at %time% >> %logFile%
-echo. >> %logFile%
-echo Checking if the computer is connected to the internet. >> %logFile%
-echo Running: ping google.com -n 4 > nul >> %logFile%
-ping google.com -n 4 > nul
-if %errorlevel% == 0 (
-	title Activating Windows Enterprise...
-	echo Activating Windows Enterprise Edition...
-	echo Activating Windows Enterprise Edition... >> %logFile%
-	timeout /t 1 > nul
-	echo Uninstalling product key...
-	echo Uninstalling product key... >> %logFile%
-	slmgr -upk
-	echo Running: slmgr -upk >> %logFile%
-	echo Installing new product key...
-	echo Installing new product key... >> %logFile%
-	slmgr.vbs /ipk NPPR9-FWDCX-D2C8J-H872K-2YT43
-	echo Running: slmgr.vbs /ipk NPPR9-FWDCX-D2C8J-H872K-2YT43 >> %logFile%
-	echo Setting KMS machine name...
-	echo Setting KMS machine name... >> %logFile%
-	slmgr /skms kms8.msguides.com
-	echo Running: slmgr /skms kms8.msguides.com >> %logFile%
-	echo Attempting to activate Microsoft Windows...
-	echo Attempting to activate Microsoft Windows... >> %logFile%
-	slmgr /ato
-	echo Running: slmgr /ato >> %logFile%
-	echo.
-	echo [38;5;10mActivated Microsoft Windows successfully.[0m
-	echo Activated Microsoft Windows successfully. >> %logFile%
-	echo. > %logFile%
-	echo.
-	echo Activation log file generated. Enter "activatepro show log" to see.
-	echo.
-	if %autoMode% == 1 (
-		goto officeAuto
-	) else (
-		if %cliMode%==1 (
-			goto command
+echo Getting OS Info...
+timeout /t 3 > nul
+for /f "tokens=2 delims==" %%i in ('wmic os get caption /value') do set os=%%i
+if "%os%" == "Microsoft Windows 11 Enterprise" (
+	echo Started on %date% at %time% >> %logFile%
+	echo. >> %logFile%
+	echo Checking if the computer is connected to the internet. >> %logFile%
+	echo Running: ping google.com -n 4 > nul >> %logFile%
+	ping google.com -n 4 > nul
+	if %errorlevel% == 0 (
+		title Activating Windows Enterprise...
+		echo Activating Windows Enterprise Edition...
+		echo Activating Windows Enterprise Edition... >> %logFile%
+		timeout /t 1 > nul
+		echo Uninstalling product key...
+		echo Uninstalling product key... >> %logFile%
+		slmgr -upk
+		echo Running: slmgr -upk >> %logFile%
+		echo Installing new product key...
+		echo Installing new product key... >> %logFile%
+		slmgr.vbs /ipk NPPR9-FWDCX-D2C8J-H872K-2YT43
+		echo Running: slmgr.vbs /ipk NPPR9-FWDCX-D2C8J-H872K-2YT43 >> %logFile%
+		echo Setting KMS machine name...
+		echo Setting KMS machine name... >> %logFile%
+		slmgr /skms kms8.msguides.com
+		echo Running: slmgr /skms kms8.msguides.com >> %logFile%
+		echo Attempting to activate Microsoft Windows...
+		echo Attempting to activate Microsoft Windows... >> %logFile%
+		slmgr /ato
+		echo Running: slmgr /ato >> %logFile%
+		echo.
+		echo [38;5;10mActivated Microsoft Windows successfully.[0m.
+		echo Activated Microsoft Windows successfully. >> %logFile%
+		echo. >> %logFile%
+		echo.
+		echo Activation log file generated. Enter "activatepro show log" to see.
+		echo.
+		if %autoMode% == 1 (
+			goto officeAuto
 		) else (
-			cls
-			echo [38;5;10mMicrosoft Windows Pro Activated Successfully!
-			echo Press any key to continue.[0m
-			pause > nul
-			timeout /t 2
-			goto gui
+			if %cliMode%==1 (
+				goto command
+			) else (
+				cls
+				echo [38;5;10mMicrosoft Windows Activated Successfully!
+				echo Press any key to continue.[0m
+				pause > nul
+				timeout /t 2
+				goto gui
+			)
 		)
+	) else (
+		goto internetError
+	)
+) else if "%os%" == "Microsoft Windows 10 Enterprise" (
+	echo Started on %date% at %time% >> %logFile%
+	echo. >> %logFile%
+	echo Checking if the computer is connected to the internet. >> %logFile%
+	echo Running: ping google.com -n 4 > nul >> %logFile%
+	ping google.com -n 4 > nul
+	if %errorlevel% == 0 (
+		title Activating Windows Enterprise...
+		echo Activating Windows Enterprise Edition...
+		echo Activating Windows Enterprise Edition... >> %logFile%
+		timeout /t 1 > nul
+		echo Uninstalling product key...
+		echo Uninstalling product key... >> %logFile%
+		slmgr -upk
+		echo Running: slmgr -upk >> %logFile%
+		echo Installing new product key...
+		echo Installing new product key... >> %logFile%
+		slmgr.vbs /ipk NPPR9-FWDCX-D2C8J-H872K-2YT43
+		echo Running: slmgr.vbs /ipk NPPR9-FWDCX-D2C8J-H872K-2YT43 >> %logFile%
+		echo Setting KMS machine name...
+		echo Setting KMS machine name... >> %logFile%
+		slmgr /skms kms8.msguides.com
+		echo Running: slmgr /skms kms8.msguides.com >> %logFile%
+		echo Attempting to activate Microsoft Windows...
+		echo Attempting to activate Microsoft Windows... >> %logFile%
+		slmgr /ato
+		echo Running: slmgr /ato >> %logFile%
+		echo.
+		echo [38;5;10mActivated Microsoft Windows successfully.[0m.
+		echo Activated Microsoft Windows successfully. >> %logFile%
+		echo. >> %logFile%
+		echo.
+		echo Activation log file generated. Enter "activatepro show log" to see.
+		echo.
+		if %autoMode% == 1 (
+			goto officeAuto
+		) else (
+			if %cliMode%==1 (
+				goto command
+			) else (
+				cls
+				echo [38;5;10mMicrosoft Windows Activated Successfully!
+				echo Press any key to continue.[0m
+				pause > nul
+				timeout /t 2
+				goto gui
+			)
+		)
+	) else (
+		goto internetError
 	)
 ) else (
-	goto internetError
+	echo [38;5;196mError: Incorrect Windows Edition.[0m
+	if %cliMode% == 1 (
+		echo.
+		goto command
+	) else (
+		echo Press any key to continue!
+		pause > nul
+		goto guiWindows
+	)
 )
-goto command
 
 :enterprise-n
-echo Started on %date% at %time% >> %logFile%
-echo. >> %logFile%
-echo Checking if the computer is connected to the internet. >> %logFile%
-echo Running: ping google.com -n 4 > nul >> %logFile%
-ping google.com -n 4 > nul
-if %errorlevel% == 0 (
-	title Activating Windows Enterprise N...
-	echo Activating Windows Enterprise N Edition...
-	echo Activating Windows Enterprise N Edition... >> %logFile%
-	timeout /t 1 > nul
-	echo Uninstalling product key...
-	echo Uninstalling product key... >> %logFile%
-	slmgr -upk
-	echo Running: slmgr -upk >> %logFile%
-	echo Installing new product key...
-	echo Installing new product key... >> %logFile%
-	slmgr.vbs /ipk DPH2V-TTNVB-4X9Q3-TJR4H-KHJW4
-	echo Running: slmgr.vbs /ipk DPH2V-TTNVB-4X9Q3-TJR4H-KHJW4 >> %logFile%
-	echo Setting KMS machine name...
-	echo Setting KMS machine name... >> %logFile%
-	slmgr /skms kms8.msguides.com
-	echo Running: slmgr /skms kms8.msguides.com >> %logFile%
-	echo Attempting to activate Microsoft Windows...
-	echo Attempting to activate Microsoft Windows... >> %logFile%
-	slmgr /ato
-	echo Running: slmgr /ato >> %logFile%
-	echo.
-	echo [38;5;10mActivated Microsoft Windows successfully.[0m
-	echo Activated Microsoft Windows successfully. >> %logFile%
+echo Getting OS Info...
+timeout /t 3 > nul
+for /f "tokens=2 delims==" %%i in ('wmic os get caption /value') do set os=%%i
+if "%os%" == "Microsoft Windows 11 Enterprise N" (
+	echo Started on %date% at %time% >> %logFile%
 	echo. >> %logFile%
-	echo.
-	echo Activation log file generated. Enter "activatepro show log" to see.
-	echo.
-	if %autoMode% == 1 (
-		goto officeAuto
-	) else (
-		if %cliMode%==1 (
+	echo Checking if the computer is connected to the internet. >> %logFile%
+	echo Running: ping google.com -n 4 > nul >> %logFile%
+	ping google.com -n 4 > nul
+	if %errorlevel% == 0 (
+		title Activating Windows Enterprise N...
+		echo Activating Windows Enterprise N Edition...
+		echo Activating Windows Enterprise N Edition... >> %logFile%
+		timeout /t 1 > nul
+		echo Uninstalling product key...
+		echo Uninstalling product key... >> %logFile%
+		slmgr -upk
+		echo Running: slmgr -upk >> %logFile%
+		echo Installing new product key...
+		echo Installing new product key... >> %logFile%
+		slmgr.vbs /ipk DPH2V-TTNVB-4X9Q3-TJR4H-KHJW4
+		echo Running: slmgr.vbs /ipk DPH2V-TTNVB-4X9Q3-TJR4H-KHJW4 >> %logFile%
+		echo Setting KMS machine name...
+		echo Setting KMS machine name... >> %logFile%
+		slmgr /skms kms8.msguides.com
+		echo Running: slmgr /skms kms8.msguides.com >> %logFile%
+		echo Attempting to activate Microsoft Windows...
+		echo Attempting to activate Microsoft Windows... >> %logFile%
+		slmgr /ato
+		echo Running: slmgr /ato >> %logFile%
+		echo.
+		echo [38;5;10mActivated Microsoft Windows successfully.[0m.
+		echo Activated Microsoft Windows successfully. >> %logFile%
+		echo. >> %logFile%
+		echo.
+		echo Activation log file generated. Enter "activatepro show log" to see.
+		echo.
+		if %autoMode% == 1 (
+			goto officeAuto
+		) else (
 			if %cliMode%==1 (
-			goto command
-		) else (
-			cls
-			echo [38;5;10mMicrosoft Windows Pro Activated Successfully!
-			echo Press any key to continue.[0m
-			pause > nul
-			timeout /t 2
-			goto gui
+				goto command
+			) else (
+				cls
+				echo [38;5;10mMicrosoft Windows Activated Successfully!
+				echo Press any key to continue.[0m
+				pause > nul
+				timeout /t 2
+				goto gui
+			)
 		)
+	) else (
+		goto internetError
+	)
+) else if "%os%" == "Microsoft Windows 10 Enterprise N" (
+	echo Started on %date% at %time% >> %logFile%
+	echo. >> %logFile%
+	echo Checking if the computer is connected to the internet. >> %logFile%
+	echo Running: ping google.com -n 4 > nul >> %logFile%
+	ping google.com -n 4 > nul
+	if %errorlevel% == 0 (
+		title Activating Windows Enterprise N...
+		echo Activating Windows Enterprise N Edition...
+		echo Activating Windows Enterprise N Edition... >> %logFile%
+		timeout /t 1 > nul
+		echo Uninstalling product key...
+		echo Uninstalling product key... >> %logFile%
+		slmgr -upk
+		echo Running: slmgr -upk >> %logFile%
+		echo Installing new product key...
+		echo Installing new product key... >> %logFile%
+		slmgr.vbs /ipk DPH2V-TTNVB-4X9Q3-TJR4H-KHJW4
+		echo Running: slmgr.vbs /ipk DPH2V-TTNVB-4X9Q3-TJR4H-KHJW4 >> %logFile%
+		echo Setting KMS machine name...
+		echo Setting KMS machine name... >> %logFile%
+		slmgr /skms kms8.msguides.com
+		echo Running: slmgr /skms kms8.msguides.com >> %logFile%
+		echo Attempting to activate Microsoft Windows...
+		echo Attempting to activate Microsoft Windows... >> %logFile%
+		slmgr /ato
+		echo Running: slmgr /ato >> %logFile%
+		echo.
+		echo [38;5;10mActivated Microsoft Windows successfully.[0m.
+		echo Activated Microsoft Windows successfully. >> %logFile%
+		echo. >> %logFile%
+		echo.
+		echo Activation log file generated. Enter "activatepro show log" to see.
+		echo.
+		if %autoMode% == 1 (
+			goto officeAuto
 		) else (
-			cls
-			echo [38;5;10mMicrosoft Windows Pro Activated Successfully!
-			echo Press any key to continue.[0m
-			pause > nul
-			timeout /t 2
-			goto gui
+			if %cliMode%==1 (
+				goto command
+			) else (
+				cls
+				echo [38;5;10mMicrosoft Windows Activated Successfully!
+				echo Press any key to continue.[0m
+				pause > nul
+				timeout /t 2
+				goto gui
+			)
 		)
+	) else (
+		goto internetError
 	)
 ) else (
-	goto internetError
+	echo [38;5;196mError: Incorrect Windows Edition.[0m
+	if %cliMode% == 1 (
+		echo.
+		goto command
+	) else (
+		echo Press any key to continue!
+		pause > nul
+		goto guiWindows
+	)
 )
-goto command
 
 :education
-echo Started on %date% at %time% >> %logFile%
-echo. >> %logFile%
-echo Checking if the computer is connected to the internet. >> %logFile%
-echo Running: ping google.com -n 4 > nul >> %logFile%
-ping google.com -n 4 > nul
-if %errorlevel% == 0 (
-	title Activating Windows Education...
-	echo Activating Windows Education Edition...
-	echo Activating Windows Education Edition... >> %logFile%
-	timeout /t 1 > nul
-	echo Uninstalling product key...
-	echo Uninstalling product key... >> %logFile%
-	slmgr -upk
-	echo Running: slmgr -upk >> %logFile%
-	echo Installing new product key...
-	echo Installing new product key... >> %logFile%
-	slmgr.vbs /ipk NW6C2-QMPVW-D7KKK-3GKT6-VCFB2
-	echo Running: slmgr.vbs /ipk NW6C2-QMPVW-D7KKK-3GKT6-VCFB2 >> %logFile%
-	echo Setting KMS machine name...
-	echo Setting KMS machine name... >> %logFile%
-	slmgr /skms kms8.msguides.com
-	echo Running: slmgr /skms kms8.msguides.com >> %logFile%
-	echo Attempting to activate Microsoft Windows...
-	echo Attempting to activate Microsoft Windows... >> %logFile%
-	slmgr /ato
-	echo Running: slmgr /ato >> %logFile%
-	echo.
-	echo [38;5;10mActivated Microsoft Windows successfully.[0m
-	echo Activated Microsoft Windows successfully. >> %logFile%
+echo Getting OS Info...
+timeout /t 3 > nul
+for /f "tokens=2 delims==" %%i in ('wmic os get caption /value') do set os=%%i
+if "%os%" == "Microsoft Windows 11 Education" (
+	echo Started on %date% at %time% >> %logFile%
 	echo. >> %logFile%
-	echo.
-	echo Activation log file generated. Enter "activatepro show log" to see.
-	echo.
-	if %autoMode% == 1 (
-		goto officeAuto
-	) else (
-		if %cliMode%==1 (
-			goto command
+	echo Checking if the computer is connected to the internet. >> %logFile%
+	echo Running: ping google.com -n 4 > nul >> %logFile%
+	ping google.com -n 4 > nul
+	if %errorlevel% == 0 (
+		title Activating Windows Education...
+		echo Activating Windows Education Edition...
+		echo Activating Windows Education Edition... >> %logFile%
+		timeout /t 1 > nul
+		echo Uninstalling product key...
+		echo Uninstalling product key... >> %logFile%
+		slmgr -upk
+		echo Running: slmgr -upk >> %logFile%
+		echo Installing new product key...
+		echo Installing new product key... >> %logFile%
+		slmgr.vbs /ipk NW6C2-QMPVW-D7KKK-3GKT6-VCFB2
+		echo Running: slmgr.vbs /ipk NW6C2-QMPVW-D7KKK-3GKT6-VCFB2 >> %logFile%
+		echo Setting KMS machine name...
+		echo Setting KMS machine name... >> %logFile%
+		slmgr /skms kms8.msguides.com
+		echo Running: slmgr /skms kms8.msguides.com >> %logFile%
+		echo Attempting to activate Microsoft Windows...
+		echo Attempting to activate Microsoft Windows... >> %logFile%
+		slmgr /ato
+		echo Running: slmgr /ato >> %logFile%
+		echo.
+		echo [38;5;10mActivated Microsoft Windows successfully.[0m.
+		echo Activated Microsoft Windows successfully. >> %logFile%
+		echo. >> %logFile%
+		echo.
+		echo Activation log file generated. Enter "activatepro show log" to see.
+		echo.
+		if %autoMode% == 1 (
+			goto officeAuto
 		) else (
-			cls
-			echo [38;5;10mMicrosoft Windows Pro Activated Successfully!
-			echo Press any key to continue.[0m
-			pause > nul
-			timeout /t 2
-			goto gui
+			if %cliMode%==1 (
+				goto command
+			) else (
+				cls
+				echo [38;5;10mMicrosoft Windows Activated Successfully!
+				echo Press any key to continue.[0m
+				pause > nul
+				timeout /t 2
+				goto gui
+			)
 		)
+	) else (
+		goto internetError
+	)
+) else if "%os%" == "Microsoft Windows 10 Education" (
+	echo Started on %date% at %time% >> %logFile%
+	echo. >> %logFile%
+	echo Checking if the computer is connected to the internet. >> %logFile%
+	echo Running: ping google.com -n 4 > nul >> %logFile%
+	ping google.com -n 4 > nul
+	if %errorlevel% == 0 (
+		title Activating Windows Education...
+		echo Activating Windows Education Edition...
+		echo Activating Windows Education Edition... >> %logFile%
+		timeout /t 1 > nul
+		echo Uninstalling product key...
+		echo Uninstalling product key... >> %logFile%
+		slmgr -upk
+		echo Running: slmgr -upk >> %logFile%
+		echo Installing new product key...
+		echo Installing new product key... >> %logFile%
+		slmgr.vbs /ipk NW6C2-QMPVW-D7KKK-3GKT6-VCFB2
+		echo Running: slmgr.vbs /ipk NW6C2-QMPVW-D7KKK-3GKT6-VCFB2 >> %logFile%
+		echo Setting KMS machine name...
+		echo Setting KMS machine name... >> %logFile%
+		slmgr /skms kms8.msguides.com
+		echo Running: slmgr /skms kms8.msguides.com >> %logFile%
+		echo Attempting to activate Microsoft Windows...
+		echo Attempting to activate Microsoft Windows... >> %logFile%
+		slmgr /ato
+		echo Running: slmgr /ato >> %logFile%
+		echo.
+		echo [38;5;10mActivated Microsoft Windows successfully.[0m.
+		echo Activated Microsoft Windows successfully. >> %logFile%
+		echo. >> %logFile%
+		echo.
+		echo Activation log file generated. Enter "activatepro show log" to see.
+		echo.
+		if %autoMode% == 1 (
+			goto officeAuto
+		) else (
+			if %cliMode%==1 (
+				goto command
+			) else (
+				cls
+				echo [38;5;10mMicrosoft Windows Activated Successfully!
+				echo Press any key to continue.[0m
+				pause > nul
+				timeout /t 2
+				goto gui
+			)
+		)
+	) else (
+		goto internetError
 	)
 ) else (
-	goto internetError
+	echo [38;5;196mError: Incorrect Windows Edition.[0m
+	if %cliMode% == 1 (
+		echo.
+		goto command
+	) else (
+		echo Press any key to continue!
+		pause > nul
+		goto guiWindows
+	)
 )
-goto command
 
 :education-n
-echo Started on %date% at %time% >> %logFile%
-echo. >> %logFile%
-echo Checking if the computer is connected to the internet. >> %logFile%
-echo Running: ping google.com -n 4 > nul >> %logFile%
-ping google.com -n 4 > nul
-if %errorlevel% == 0 (
-	title Activating Windows Education N...
-	echo Activating Windows Education N Edition...
-	echo Activating Windows Education N Edition... >> %logFile%
-	timeout /t 1 > nul
-	echo Uninstalling product key...
-	echo Uninstalling product key... >> %logFile%
-	slmgr -upk
-	echo Running: slmgr -upk >> %logFile%
-	echo Installing new product key...
-	echo Installing new product key... >> %logFile%
-	slmgr.vbs /ipk 2WH4N-8QGBV-H22JP-CT43Q-MDWWJ
-	echo Running: slmgr.vbs /ipk 2WH4N-8QGBV-H22JP-CT43Q-MDWWJ >> %logFile%
-	echo Setting KMS machine name...
-	echo Setting KMS machine name... >> %logFile%
-	slmgr /skms kms8.msguides.com
-	echo Running: slmgr /skms kms8.msguides.com >> %logFile%
-	echo Attempting to activate Microsoft Windows...
-	echo Attempting to activate Microsoft Windows... >> %logFile%
-	slmgr /ato
-	echo Running: slmgr /ato >> %logFile%
-	echo.
-	echo [38;5;10mActivated Microsoft Windows successfully.[0m
-	echo Activated Microsoft Windows successfully. >> %logFile%
+echo Getting OS Info...
+timeout /t 3 > nul
+for /f "tokens=2 delims==" %%i in ('wmic os get caption /value') do set os=%%i
+if "%os%" == "Microsoft Windows 11 Education N" (
+	echo Started on %date% at %time% >> %logFile%
 	echo. >> %logFile%
-	echo.
-	echo Activation log file generated. Enter "activatepro show log" to see.
-	echo.
-	if %autoMode% == 1 (
-		goto officeAuto
-	) else (
-		if %cliMode%==1 (
-			goto command
+	echo Checking if the computer is connected to the internet. >> %logFile%
+	echo Running: ping google.com -n 4 > nul >> %logFile%
+	ping google.com -n 4 > nul
+	if %errorlevel% == 0 (
+		title Activating Windows Education N...
+		echo Activating Windows Education N Edition...
+		echo Activating Windows Education N Edition... >> %logFile%
+		timeout /t 1 > nul
+		echo Uninstalling product key...
+		echo Uninstalling product key... >> %logFile%
+		slmgr -upk
+		echo Running: slmgr -upk >> %logFile%
+		echo Installing new product key...
+		echo Installing new product key... >> %logFile%
+		slmgr.vbs /ipk 2WH4N-8QGBV-H22JP-CT43Q-MDWWJ
+		echo Running: slmgr.vbs /ipk 2WH4N-8QGBV-H22JP-CT43Q-MDWWJ >> %logFile%
+		echo Setting KMS machine name...
+		echo Setting KMS machine name... >> %logFile%
+		slmgr /skms kms8.msguides.com
+		echo Running: slmgr /skms kms8.msguides.com >> %logFile%
+		echo Attempting to activate Microsoft Windows...
+		echo Attempting to activate Microsoft Windows... >> %logFile%
+		slmgr /ato
+		echo Running: slmgr /ato >> %logFile%
+		echo.
+		echo [38;5;10mActivated Microsoft Windows successfully.[0m.
+		echo Activated Microsoft Windows successfully. >> %logFile%
+		echo. >> %logFile%
+		echo.
+		echo Activation log file generated. Enter "activatepro show log" to see.
+		echo.
+		if %autoMode% == 1 (
+			goto officeAuto
 		) else (
-			cls
-			echo [38;5;10mMicrosoft Windows Pro Activated Successfully!
-			echo Press any key to continue.[0m
-			pause > nul
-			timeout /t 2
-			goto gui
+			if %cliMode%==1 (
+				goto command
+			) else (
+				cls
+				echo [38;5;10mMicrosoft Windows Activated Successfully!
+				echo Press any key to continue.[0m
+				pause > nul
+				timeout /t 2
+				goto gui
+			)
 		)
+	) else (
+		goto internetError
+	)
+) else if "%os%" == "Microsoft Windows 10 Education N" (
+	echo Started on %date% at %time% >> %logFile%
+	echo. >> %logFile%
+	echo Checking if the computer is connected to the internet. >> %logFile%
+	echo Running: ping google.com -n 4 > nul >> %logFile%
+	ping google.com -n 4 > nul
+	if %errorlevel% == 0 (
+		title Activating Windows Education N...
+		echo Activating Windows Education N Edition...
+		echo Activating Windows Education N Edition... >> %logFile%
+		timeout /t 1 > nul
+		echo Uninstalling product key...
+		echo Uninstalling product key... >> %logFile%
+		slmgr -upk
+		echo Running: slmgr -upk >> %logFile%
+		echo Installing new product key...
+		echo Installing new product key... >> %logFile%
+		slmgr.vbs /ipk 2WH4N-8QGBV-H22JP-CT43Q-MDWWJ
+		echo Running: slmgr.vbs /ipk 2WH4N-8QGBV-H22JP-CT43Q-MDWWJ >> %logFile%
+		echo Setting KMS machine name...
+		echo Setting KMS machine name... >> %logFile%
+		slmgr /skms kms8.msguides.com
+		echo Running: slmgr /skms kms8.msguides.com >> %logFile%
+		echo Attempting to activate Microsoft Windows...
+		echo Attempting to activate Microsoft Windows... >> %logFile%
+		slmgr /ato
+		echo Running: slmgr /ato >> %logFile%
+		echo.
+		echo [38;5;10mActivated Microsoft Windows successfully.[0m.
+		echo Activated Microsoft Windows successfully. >> %logFile%
+		echo. >> %logFile%
+		echo.
+		echo Activation log file generated. Enter "activatepro show log" to see.
+		echo.
+		if %autoMode% == 1 (
+			goto officeAuto
+		) else (
+			if %cliMode%==1 (
+				goto command
+			) else (
+				cls
+				echo [38;5;10mMicrosoft Windows Activated Successfully!
+				echo Press any key to continue.[0m
+				pause > nul
+				timeout /t 2
+				goto gui
+			)
+		)
+	) else (
+		goto internetError
 	)
 ) else (
-	goto internetError
+	echo [38;5;196mError: Incorrect Windows Edition.[0m
+	if %cliMode% == 1 (
+		echo.
+		goto command
+	) else (
+		echo Press any key to continue!
+		pause > nul
+		goto guiWindows
+	)
 )
-goto command
 
 
 
@@ -1081,6 +1505,8 @@ if %errorlevel% == 1 (
 		set "cliMode=1"
 		goto start
 	) else if !selected! == 5 (
+		echo Exiting ActivatePro 2.0
+		timeout /t 1 > nul
 		exit
 	)
 )
@@ -1183,6 +1609,8 @@ if %errorlevel% == 1 (
 		cls
 		goto gui
 	) else if !selected! == 9 (
+		echo Exiting ActivatePro 2.0
+		timeout /t 1 > nul
 		exit
 	)
 )
