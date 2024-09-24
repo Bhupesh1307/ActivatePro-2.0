@@ -1416,13 +1416,23 @@ echo office
 REM Internet Connection Error Message
 :internetError
 timeout /t 3 > nul
-echo [38;5;196mError: Couldn't connect to the internet.
-echo Make sure you have an active internet connection and then try again.[0m
-echo.
+if %cliMode%==1 (
+	echo [38;5;196mError: Couldn't connect to the internet.
+	echo Make sure you have an active internet connection and then try again.[0m
+	echo.
+	goto command
+) else (
+	cls
+	echo [38;5;196mError: Couldn't connect to the internet.
+	echo Make sure you have an active internet connection and then try again.[0m
+	echo.
+	echo Press any key to continue!
+	pause > nul
+	goto gui
+)
 echo Error: Couldn't connect to the internet. >> %logFile%
 echo Make sure you have an active internet connection and then try again. >> %logFile%
 echo. >> %logFile%
-goto command
 
 
 
@@ -1614,14 +1624,4 @@ if %errorlevel% == 1 (
 		exit
 	)
 )
-goto windowsMenu
-           
-:space
-echo.
-echo.
-echo.
-echo.
-echo.
-echo.
-echo.
-echo.                                        
+goto windowsMenu                               
