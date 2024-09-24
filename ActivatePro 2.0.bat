@@ -216,7 +216,7 @@ if "%os%" == "Microsoft Windows 11 Home" (
 				echo [38;5;10mMicrosoft Windows Activated Successfully!
 				echo Press any key to continue.[0m
 				pause > nul
-				timeout /t 2
+				timeout /t 2  > nul
 				goto gui
 			)
 		)
@@ -267,7 +267,7 @@ if "%os%" == "Microsoft Windows 11 Home" (
 				echo [38;5;10mMicrosoft Windows Activated Successfully!
 				echo Press any key to continue.[0m
 				pause > nul
-				timeout /t 2
+				timeout /t 2 > nul
 				goto gui
 			)
 		)
@@ -281,6 +281,7 @@ if "%os%" == "Microsoft Windows 11 Home" (
 		goto command
 	) else (
 		echo Press any key to continue!
+		echo.
 		pause > nul
 		goto guiWindows
 	)
@@ -334,7 +335,7 @@ if "%os%" == "Microsoft Windows 11 Home N" (
 				echo [38;5;10mMicrosoft Windows Activated Successfully!
 				echo Press any key to continue.[0m
 				pause > nul
-				timeout /t 2
+				timeout /t 2 > nul
 				goto gui
 			)
 		)
@@ -384,8 +385,9 @@ if "%os%" == "Microsoft Windows 11 Home N" (
 				cls
 				echo [38;5;10mMicrosoft Windows Activated Successfully!
 				echo Press any key to continue.[0m
+				echo.
 				pause > nul
-				timeout /t 2
+				timeout /t 2 > nul
 				goto gui
 			)
 		)
@@ -399,6 +401,7 @@ if "%os%" == "Microsoft Windows 11 Home N" (
 		goto command
 	) else (
 		echo Press any key to continue!
+		echo.
 		pause > nul
 		goto guiWindows
 	)
@@ -452,7 +455,7 @@ if "%os%" == "Microsoft Windows 11 Pro" (
 				echo [38;5;10mMicrosoft Windows Activated Successfully!
 				echo Press any key to continue.[0m
 				pause > nul
-				timeout /t 2
+				timeout /t 2 > nul
 				goto gui
 			)
 		)
@@ -503,7 +506,7 @@ if "%os%" == "Microsoft Windows 11 Pro" (
 				echo [38;5;10mMicrosoft Windows Activated Successfully!
 				echo Press any key to continue.[0m
 				pause > nul
-				timeout /t 2
+				timeout /t 2 > nul
 				goto gui
 			)
 		)
@@ -517,6 +520,7 @@ if "%os%" == "Microsoft Windows 11 Pro" (
 		goto command
 	) else (
 		echo Press any key to continue!
+		echo.
 		pause > nul
 		goto guiWindows
 	)
@@ -571,7 +575,7 @@ if "%os%" == "Microsoft Windows 11 Pro N" (
 				echo [38;5;10mMicrosoft Windows Activated Successfully!
 				echo Press any key to continue.[0m
 				pause > nul
-				timeout /t 2
+				timeout /t 2 > nul
 				goto gui
 			)
 		)
@@ -622,7 +626,7 @@ if "%os%" == "Microsoft Windows 11 Pro N" (
 				echo [38;5;10mMicrosoft Windows Activated Successfully!
 				echo Press any key to continue.[0m
 				pause > nul
-				timeout /t 2
+				timeout /t 2 > nul
 				goto gui
 			)
 		)
@@ -636,6 +640,7 @@ if "%os%" == "Microsoft Windows 11 Pro N" (
 		goto command
 	) else (
 		echo Press any key to continue!
+		echo.
 		pause > nul
 		goto guiWindows
 	)
@@ -689,7 +694,7 @@ if "%os%" == "Microsoft Windows 11 Enterprise" (
 				echo [38;5;10mMicrosoft Windows Activated Successfully!
 				echo Press any key to continue.[0m
 				pause > nul
-				timeout /t 2
+				timeout /t 2 > nul
 				goto gui
 			)
 		)
@@ -740,7 +745,7 @@ if "%os%" == "Microsoft Windows 11 Enterprise" (
 				echo [38;5;10mMicrosoft Windows Activated Successfully!
 				echo Press any key to continue.[0m
 				pause > nul
-				timeout /t 2
+				timeout /t 2 > nul
 				goto gui
 			)
 		)
@@ -754,6 +759,7 @@ if "%os%" == "Microsoft Windows 11 Enterprise" (
 		goto command
 	) else (
 		echo Press any key to continue!
+		echo.
 		pause > nul
 		goto guiWindows
 	)
@@ -807,7 +813,7 @@ if "%os%" == "Microsoft Windows 11 Enterprise N" (
 				echo [38;5;10mMicrosoft Windows Activated Successfully!
 				echo Press any key to continue.[0m
 				pause > nul
-				timeout /t 2
+				timeout /t 2 > nul
 				goto gui
 			)
 		)
@@ -858,7 +864,7 @@ if "%os%" == "Microsoft Windows 11 Enterprise N" (
 				echo [38;5;10mMicrosoft Windows Activated Successfully!
 				echo Press any key to continue.[0m
 				pause > nul
-				timeout /t 2
+				timeout /t 2 > nul
 				goto gui
 			)
 		)
@@ -872,6 +878,7 @@ if "%os%" == "Microsoft Windows 11 Enterprise N" (
 		goto command
 	) else (
 		echo Press any key to continue!
+		echo.
 		pause > nul
 		goto guiWindows
 	)
@@ -925,7 +932,7 @@ if "%os%" == "Microsoft Windows 11 Education" (
 				echo [38;5;10mMicrosoft Windows Activated Successfully!
 				echo Press any key to continue.[0m
 				pause > nul
-				timeout /t 2
+				timeout /t 2 > nul
 				goto gui
 			)
 		)
@@ -976,7 +983,7 @@ if "%os%" == "Microsoft Windows 11 Education" (
 				echo [38;5;10mMicrosoft Windows Activated Successfully!
 				echo Press any key to continue.[0m
 				pause > nul
-				timeout /t 2
+				timeout /t 2 > nul
 				goto gui
 			)
 		)
@@ -990,6 +997,7 @@ if "%os%" == "Microsoft Windows 11 Education" (
 		goto command
 	) else (
 		echo Press any key to continue!
+		echo.
 		pause > nul
 		goto guiWindows
 	)
@@ -1043,7 +1051,7 @@ if "%os%" == "Microsoft Windows 11 Education N" (
 				echo [38;5;10mMicrosoft Windows Activated Successfully!
 				echo Press any key to continue.[0m
 				pause > nul
-				timeout /t 2
+				timeout /t 2 > nul
 				goto gui
 			)
 		)
@@ -1094,7 +1102,7 @@ if "%os%" == "Microsoft Windows 11 Education N" (
 				echo [38;5;10mMicrosoft Windows Activated Successfully!
 				echo Press any key to continue.[0m
 				pause > nul
-				timeout /t 2
+				timeout /t 2 > nul
 				goto gui
 			)
 		)
@@ -1108,6 +1116,7 @@ if "%os%" == "Microsoft Windows 11 Education N" (
 		goto command
 	) else (
 		echo Press any key to continue!
+		echo.
 		pause > nul
 		goto guiWindows
 	)
