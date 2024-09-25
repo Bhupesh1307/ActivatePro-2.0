@@ -1190,7 +1190,7 @@ if %errorlevel% == 0 (
 	) else (
 		echo [38;5;196mError: Microsoft Office not found!
 		echo Couldn't find the path where Microsoft Office 2016/2019/2021 is installed.
-		echo Make sure that the Microsoft Office 2016 is installed at the default location.
+		echo Make sure that the Microsoft Office 2016/2019/2021 is installed at the default location.
 		echo And then try again.[0m
 		echo.
 		goto command
@@ -1633,4 +1633,99 @@ if %errorlevel% == 1 (
 		exit
 	)
 )
-goto windowsMenu                               
+goto windowsMenu                  
+
+
+
+REM MS Office Activation GUI
+
+:guiOffice
+REM MS Office GUI Variables
+set menu[0]=MS Office 2010
+set menu[1]=MS Office 2013
+set menu[2]=MS Office 2016
+set menu[3]=MS Office 2019
+set menu[4]=MS Office 2021
+set menu[5]=Go Back
+set menu[6]=Exit
+set "selected=0"
+
+
+:officeMenu
+REM Office GUI Menu
+chcp 65001 > nul
+cls
+echo.
+echo				    	███╗   ███╗███████╗     ██████╗ ███████╗███████╗██╗ ██████╗███████╗
+echo				    	████╗ ████║██╔════╝    ██╔═══██╗██╔════╝██╔════╝██║██╔════╝██╔════╝
+echo				    	██╔████╔██║███████╗    ██║   ██║█████╗  █████╗  ██║██║     █████╗  
+echo				    	██║╚██╔╝██║╚════██║    ██║   ██║██╔══╝  ██╔══╝  ██║██║     ██╔══╝  
+echo				    	██║ ╚═╝ ██║███████║    ╚██████╔╝██║     ██║     ██║╚██████╗███████╗
+echo				    	╚═╝     ╚═╝╚══════╝     ╚═════╝ ╚═╝     ╚═╝     ╚═╝ ╚═════╝╚══════╝
+echo.
+echo.
+
+REM MS Office Menu Items
+:OffMenuItms
+echo Use W/S to navigate, press C to select:
+echo.
+
+REM Display the Menu Items
+for /l %%i in (0,1,6) do (
+	if %%i == %selected% (
+		echo [1m[*]  !menu[%%i]![0m
+	) else (
+		echo [ ]  !menu[%%i]!
+	)
+)
+
+REM Navigation Input
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+
+choice /c WSC >nul
+if %errorlevel% == 1 (
+	set /a selected=selected-1
+	if !selected! lss 0 (
+		set "selected=6"
+	)
+) else if %errorlevel% == 2 (
+	set /a selected=selected+1
+	if !selected! gtr 6 (
+		set "selected=0"
+	)
+) else if %errorlevel% == 3 (
+	if !selected! == 0 (
+		cls
+		goto office14
+	) else if !selected! == 1 (
+		cls
+		goto office15
+	) else if !selected! == 2 (
+		cls
+		goto office16
+	) else if !selected! == 3 (
+		cls
+		goto office16
+	) else if !selected! == 4 (
+		cls
+		goto office16
+	) else if !selected! == 5 (
+		cls
+		goto gui
+	) else if !selected! == 6 (
+		echo Exiting ActivatePro 2.0
+		timeout /t 1 > nul
+		exit
+	)
+)
+goto officeMenu                              
