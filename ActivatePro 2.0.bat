@@ -24,21 +24,23 @@ echo				/_/  ^|_\___/\__/_/ ^|___/\__,_/\__/\___/_/   /_/   \____/   /____(_)___
 echo.
 echo.
 
-REM Version
+REM Details
+echo [38;5;208m%version%[0m
+echo [38;5;208mGithub: https://github.com/Bhupesh1307[0m
 timeout /t 1 > nul
-echo %version%
-echo Github: https://github.com/Bhupesh1307
+echo.
+echo.
+echo [38;5;14mUsage: activatepro ^| ap [options][0m
+echo.
+echo [38;5;14m-h		Shows help for this program[0m
+echo [38;5;14m--help		Shows help for this program[0m
+echo [38;5;14m--gui		Starts the GUI environment of this program[0m
+echo.
+echo.
 
 REM Delay
 timeout /t 1 >nul
 echo.
-
-REM Mode Selection
-if %cliMode%==1 (
-	goto command
-) else (
-	goto gui
-)
 
 :command                                                                         
 title ActivatePro 2.0
@@ -74,13 +76,13 @@ if "%cmd%"=="" (
 	goto command
 ) else if "%cmd%"=="gui" (
 	set "cliMode=0"
-	goto start
+	goto gui
 ) else if "%cmd%"=="activatepro gui" (
 	set "cliMode=0"
-	goto start
+	goto gui
 ) else if "%cmd%"=="ap --gui" (
 	set "cliMode=0"
-	goto start
+	goto gui
 ) else if "%cmd%"=="activatepro help" (
 	goto help
 ) else if "%cmd%"=="activatepro --help" (
@@ -1470,14 +1472,14 @@ echo				/_/  ^|_\___/\__/_/ ^|___/\__,_/\__/\___/_/   /_/   \____/   /____(_)___
 echo.
 echo.
 
-REM Version
-echo %version%
-echo Github: https://github.com/Bhupesh1307
+REM Details
+echo [38;5;208m%version%[0m
+echo [38;5;208mGithub: https://github.com/Bhupesh1307[0m
 
 REM Display the Menu Items
 echo.
 echo.
-echo Use W/S to navigate, press C to select:
+echo [38;5;14mUse W/S to navigate, press C to select:[0m
 echo.
 
 REM Display the Menu Items
@@ -1566,7 +1568,7 @@ echo.
 
 REM Windows Menu Items
 :WinMenuItms
-echo Use W/S to navigate, press C to select:
+echo [38;5;14mUse W/S to navigate, press C to select:[0m
 echo.
 
 REM Display the Menu Items
@@ -1667,7 +1669,7 @@ echo.
 
 REM MS Office Menu Items
 :OffMenuItms
-echo Use W/S to navigate, press C to select:
+echo [38;5;14mUse W/S to navigate, press C to select:[0m
 echo.
 
 REM Display the Menu Items
