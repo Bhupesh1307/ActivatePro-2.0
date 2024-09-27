@@ -1361,13 +1361,18 @@ if exist "%programfiles(x86)%/Microsoft Office/Office14/ospp.vbs" (
 	echo [38;5;196mError: Microsoft Office not found!
 	echo Couldn't find any supported Microsoft Office Installation.[0m
 	echo.
-	set /p "ins=Do you want to install Microsoft Office for Free?(y/[1mn[0m): "
+	set /p "ins=Do you want to install Microsoft Office 2021 Pro Plus?(y/[1mn[0m): "
 	if %choice% == "y" (
 		goto officeInstall
 	) else (
 		set "autoMode=0"
 		echo.
-		goto command
+		if %cliMode% == 1 (
+			goto command
+		) else (
+			cls
+			goto gui
+		)
 	)	
 )
 
@@ -1481,10 +1486,9 @@ REM GUI Mode
 REM Define Menu Items
 set menu[0]=Activate Microsoft Windows
 set menu[1]=Activate Microsoft Office
-set menu[2]=Install Microsoft Office
-set menu[3]=Autopilot
-set menu[4]=Switch to CLI Mode
-set menu[5]=Exit
+set menu[2]=Autopilot
+set menu[3]=Switch to CLI Mode
+set menu[4]=Exit
 set "selected=0"
 
 :menu
@@ -1511,7 +1515,7 @@ echo [38;5;14mUse W/S to navigate, press C to select:[0m
 echo.
 
 REM Display the Menu Items
-for /l %%i in (0,1,5) do (
+for /l %%i in (0,1,4) do (
 	if %%i == %selected% (
 		echo [1m[*]  !menu[%%i]![0m
 	) else (
@@ -1529,16 +1533,17 @@ echo.
 echo.
 echo.
 echo.
+echo.
 
 choice /c WSC >nul
 if %errorlevel% == 1 (
 	set /a selected=selected-1
 	if !selected! lss 0 (
-		set "selected=5"
+		set "selected=4"
 	)
 ) else if %errorlevel% == 2 (
 	set /a selected=selected+1
-	if !selected! gtr 5 (
+	if !selected! gtr 4 (
 		set "selected=0"
 	)
 ) else if %errorlevel% == 3 (
@@ -1547,13 +1552,11 @@ if %errorlevel% == 1 (
 	) else if !selected! == 1 (
 		goto guiOffice
 	) else if !selected! == 2 (
-		goto guiOfficeInstall
-	) else if !selected! == 3 (
 		goto guiAuto
-	) else if !selected! == 4 (
+	) else if !selected! == 3 (
 		set "cliMode=1"
 		goto start
-	) else if !selected! == 5 (
+	) else if !selected! == 4 (
 		echo Exiting ActivatePro 2.0
 		timeout /t 1 > nul
 		exit
@@ -1767,7 +1770,6 @@ REM Autopilot Function
 chcp 65001 > nul
 cls
 echo.
-
 echo				    	 █████╗ ██╗   ██╗████████╗ ██████╗ ██████╗ ██╗██╗      ██████╗ ████████╗
 echo				    	██╔══██╗██║   ██║╚══██╔══╝██╔═══██╗██╔══██╗██║██║     ██╔═══██╗╚══██╔══╝
 echo				    	███████║██║   ██║   ██║   ██║   ██║██████╔╝██║██║     ██║   ██║   ██║   
@@ -1778,6 +1780,11 @@ echo.
 echo.
 set "autoMode=1"
 goto auto
+
+
+
+:officeInstall
+pause
 
 
 
