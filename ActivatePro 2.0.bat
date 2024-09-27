@@ -1307,8 +1307,8 @@ if "%os%" == "Microsoft Windows 11 Home" (
 
 
 :officeAuto
-set /p "choice=Do you want to activate Microsoft Office too?(y/n): "
-if "%choice%" == "y" (
+choice /c YN -m "Do you want to activate Microsoft Office too?(y/n): "
+if %errorlevel% == 1 (
 	echo Checking if the computer is connected to the internet. >> %logFile%
 	echo Running: ping google.com -n 4 > nul >> %logFile%
 	ping google.com -n 4 > nul
@@ -1317,10 +1317,13 @@ if "%choice%" == "y" (
 	) else (
 		goto internetError
 	)
-) else (
+) else if %errorlevel% == 2 (
 	set "autoMode=0"
-	echo.
-	goto command
+	if %cliMode% == 1 (
+		goto command
+	) else (
+		goto gui
+	)
 )
 
 :officeAutoAct
@@ -1778,3 +1781,20 @@ if %errorlevel% == 1 (
 	)
 )
 goto officeMenu                              
+
+
+
+:guiAuto
+chcp 6501 > nul
+cls
+echo.
+
+echo				    	 █████╗ ██╗   ██╗████████╗ ██████╗ ██████╗ ██╗██╗      ██████╗ ████████╗
+echo				    	██╔══██╗██║   ██║╚══██╔══╝██╔═══██╗██╔══██╗██║██║     ██╔═══██╗╚══██╔══╝
+echo				    	███████║██║   ██║   ██║   ██║   ██║██████╔╝██║██║     ██║   ██║   ██║   
+echo				    	██╔══██║██║   ██║   ██║   ██║   ██║██╔═══╝ ██║██║     ██║   ██║   ██║   
+echo				    	██║  ██║╚██████╔╝   ██║   ╚██████╔╝██║     ██║███████╗╚██████╔╝   ██║   
+echo				    	╚═╝  ╚═╝ ╚═════╝    ╚═╝    ╚═════╝ ╚═╝     ╚═╝╚══════╝ ╚═════╝    ╚═╝                                                                     
+echo.
+echo.
+goto auto
