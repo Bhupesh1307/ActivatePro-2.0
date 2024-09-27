@@ -80,6 +80,12 @@ if "%cmd%"=="" (
 ) else if "%cmd%"=="activatepro gui" (
 	set "cliMode=0"
 	goto gui
+) else if "%cmd%"=="activatepro --gui" (
+	set "cliMode=0"
+	goto gui
+) else if "%cmd%"=="ap gui" (
+	set "cliMode=0"
+	goto gui
 ) else if "%cmd%"=="ap --gui" (
 	set "cliMode=0"
 	goto gui
@@ -215,10 +221,10 @@ if "%os%" == "Microsoft Windows 11 Home" (
 				goto command
 			) else (
 				cls
-				echo [38;5;10mMicrosoft Windows Activated Successfully!
-				echo Press any key to continue.[0m
+				echo [38;5;10mMicrosoft Windows Activated Successfully![0m
+				echo.
+				echo Press any key to continue.
 				pause > nul
-				timeout /t 2  > nul
 				goto gui
 			)
 		)
@@ -266,10 +272,10 @@ if "%os%" == "Microsoft Windows 11 Home" (
 				goto command
 			) else (
 				cls
-				echo [38;5;10mMicrosoft Windows Activated Successfully!
-				echo Press any key to continue.[0m
+				echo [38;5;10mMicrosoft Windows Activated Successfully![0m
+				echo.
+				echo Press any key to continue.
 				pause > nul
-				timeout /t 2 > nul
 				goto gui
 			)
 		)
@@ -282,8 +288,8 @@ if "%os%" == "Microsoft Windows 11 Home" (
 		echo.
 		goto command
 	) else (
-		echo Press any key to continue!
 		echo.
+		echo Press any key to continue!
 		pause > nul
 		goto guiWindows
 	)
@@ -334,10 +340,10 @@ if "%os%" == "Microsoft Windows 11 Home N" (
 				goto command
 			) else (
 				cls
-				echo [38;5;10mMicrosoft Windows Activated Successfully!
-				echo Press any key to continue.[0m
+				echo [38;5;10mMicrosoft Windows Activated Successfully![0m
+				echo.
+				echo Press any key to continue.
 				pause > nul
-				timeout /t 2 > nul
 				goto gui
 			)
 		)
@@ -385,11 +391,10 @@ if "%os%" == "Microsoft Windows 11 Home N" (
 				goto command
 			) else (
 				cls
-				echo [38;5;10mMicrosoft Windows Activated Successfully!
-				echo Press any key to continue.[0m
+				echo [38;5;10mMicrosoft Windows Activated Successfully![0m
 				echo.
+				echo Press any key to continue.
 				pause > nul
-				timeout /t 2 > nul
 				goto gui
 			)
 		)
@@ -402,8 +407,8 @@ if "%os%" == "Microsoft Windows 11 Home N" (
 		echo.
 		goto command
 	) else (
-		echo Press any key to continue!
 		echo.
+		echo Press any key to continue!
 		pause > nul
 		goto guiWindows
 	)
@@ -454,10 +459,10 @@ if "%os%" == "Microsoft Windows 11 Pro" (
 				goto command
 			) else (
 				cls
-				echo [38;5;10mMicrosoft Windows Activated Successfully!
-				echo Press any key to continue.[0m
+				echo [38;5;10mMicrosoft Windows Activated Successfully![0m
+				echo.
+				echo Press any key to continue.
 				pause > nul
-				timeout /t 2 > nul
 				goto gui
 			)
 		)
@@ -505,10 +510,10 @@ if "%os%" == "Microsoft Windows 11 Pro" (
 				goto command
 			) else (
 				cls
-				echo [38;5;10mMicrosoft Windows Activated Successfully!
-				echo Press any key to continue.[0m
+				echo [38;5;10mMicrosoft Windows Activated Successfully![0m
+				echo.
+				echo Press any key to continue.
 				pause > nul
-				timeout /t 2 > nul
 				goto gui
 			)
 		)
@@ -521,8 +526,8 @@ if "%os%" == "Microsoft Windows 11 Pro" (
 		echo.
 		goto command
 	) else (
-		echo Press any key to continue!
 		echo.
+		echo Press any key to continue!
 		pause > nul
 		goto guiWindows
 	)
@@ -574,10 +579,10 @@ if "%os%" == "Microsoft Windows 11 Pro N" (
 				goto command
 			) else (
 				cls
-				echo [38;5;10mMicrosoft Windows Activated Successfully!
-				echo Press any key to continue.[0m
+				echo [38;5;10mMicrosoft Windows Activated Successfully![0m
+				echo.
+				echo Press any key to continue.
 				pause > nul
-				timeout /t 2 > nul
 				goto gui
 			)
 		)
@@ -625,10 +630,10 @@ if "%os%" == "Microsoft Windows 11 Pro N" (
 				goto command
 			) else (
 				cls
-				echo [38;5;10mMicrosoft Windows Activated Successfully!
-				echo Press any key to continue.[0m
+				echo [38;5;10mMicrosoft Windows Activated Successfully![0m
+				echo.
+				echo Press any key to continue.
 				pause > nul
-				timeout /t 2 > nul
 				goto gui
 			)
 		)
@@ -641,8 +646,8 @@ if "%os%" == "Microsoft Windows 11 Pro N" (
 		echo.
 		goto command
 	) else (
-		echo Press any key to continue!
 		echo.
+		echo Press any key to continue!
 		pause > nul
 		goto guiWindows
 	)
@@ -693,10 +698,10 @@ if "%os%" == "Microsoft Windows 11 Enterprise" (
 				goto command
 			) else (
 				cls
-				echo [38;5;10mMicrosoft Windows Activated Successfully!
-				echo Press any key to continue.[0m
+				echo [38;5;10mMicrosoft Windows Activated Successfully![0m
+				echo.
+				echo Press any key to continue.
 				pause > nul
-				timeout /t 2 > nul
 				goto gui
 			)
 		)
@@ -744,10 +749,10 @@ if "%os%" == "Microsoft Windows 11 Enterprise" (
 				goto command
 			) else (
 				cls
-				echo [38;5;10mMicrosoft Windows Activated Successfully!
-				echo Press any key to continue.[0m
+				echo [38;5;10mMicrosoft Windows Activated Successfully![0m
+				echo.
+				echo Press any key to continue.
 				pause > nul
-				timeout /t 2 > nul
 				goto gui
 			)
 		)
@@ -760,8 +765,8 @@ if "%os%" == "Microsoft Windows 11 Enterprise" (
 		echo.
 		goto command
 	) else (
-		echo Press any key to continue!
 		echo.
+		echo Press any key to continue!
 		pause > nul
 		goto guiWindows
 	)
@@ -812,10 +817,10 @@ if "%os%" == "Microsoft Windows 11 Enterprise N" (
 				goto command
 			) else (
 				cls
-				echo [38;5;10mMicrosoft Windows Activated Successfully!
-				echo Press any key to continue.[0m
+				echo [38;5;10mMicrosoft Windows Activated Successfully![0m
+				echo.
+				echo Press any key to continue.
 				pause > nul
-				timeout /t 2 > nul
 				goto gui
 			)
 		)
@@ -863,10 +868,10 @@ if "%os%" == "Microsoft Windows 11 Enterprise N" (
 				goto command
 			) else (
 				cls
-				echo [38;5;10mMicrosoft Windows Activated Successfully!
-				echo Press any key to continue.[0m
+				echo [38;5;10mMicrosoft Windows Activated Successfully![0m
+				echo.
+				echo Press any key to continue.
 				pause > nul
-				timeout /t 2 > nul
 				goto gui
 			)
 		)
@@ -879,8 +884,8 @@ if "%os%" == "Microsoft Windows 11 Enterprise N" (
 		echo.
 		goto command
 	) else (
-		echo Press any key to continue!
 		echo.
+		echo Press any key to continue!
 		pause > nul
 		goto guiWindows
 	)
@@ -931,10 +936,10 @@ if "%os%" == "Microsoft Windows 11 Education" (
 				goto command
 			) else (
 				cls
-				echo [38;5;10mMicrosoft Windows Activated Successfully!
-				echo Press any key to continue.[0m
+				echo [38;5;10mMicrosoft Windows Activated Successfully![0m
+				echo.
+				echo Press any key to continue.
 				pause > nul
-				timeout /t 2 > nul
 				goto gui
 			)
 		)
@@ -982,10 +987,10 @@ if "%os%" == "Microsoft Windows 11 Education" (
 				goto command
 			) else (
 				cls
-				echo [38;5;10mMicrosoft Windows Activated Successfully!
-				echo Press any key to continue.[0m
+				echo [38;5;10mMicrosoft Windows Activated Successfully![0m
+				echo.
+				echo Press any key to continue.
 				pause > nul
-				timeout /t 2 > nul
 				goto gui
 			)
 		)
@@ -998,8 +1003,8 @@ if "%os%" == "Microsoft Windows 11 Education" (
 		echo.
 		goto command
 	) else (
-		echo Press any key to continue!
 		echo.
+		echo Press any key to continue!
 		pause > nul
 		goto guiWindows
 	)
@@ -1050,10 +1055,10 @@ if "%os%" == "Microsoft Windows 11 Education N" (
 				goto command
 			) else (
 				cls
-				echo [38;5;10mMicrosoft Windows Activated Successfully!
-				echo Press any key to continue.[0m
+				echo [38;5;10mMicrosoft Windows Activated Successfully![0m
+				echo.
+				echo Press any key to continue.
 				pause > nul
-				timeout /t 2 > nul
 				goto gui
 			)
 		)
@@ -1101,10 +1106,10 @@ if "%os%" == "Microsoft Windows 11 Education N" (
 				goto command
 			) else (
 				cls
-				echo [38;5;10mMicrosoft Windows Activated Successfully!
-				echo Press any key to continue.[0m
+				echo [38;5;10mMicrosoft Windows Activated Successfully![0m
+				echo.
+				echo Press any key to continue.
 				pause > nul
-				timeout /t 2 > nul
 				goto gui
 			)
 		)
@@ -1117,8 +1122,8 @@ if "%os%" == "Microsoft Windows 11 Education N" (
 		echo.
 		goto command
 	) else (
-		echo Press any key to continue!
 		echo.
+		echo Press any key to continue!
 		pause > nul
 		goto guiWindows
 	)
@@ -1146,7 +1151,13 @@ if %errorlevel% == 0 (
 		echo Make sure that Microsoft Office 2010 is installed at the default location.
 		echo And then try again.[0m
 		echo.
-		goto command
+		if %cliMode%==1 (
+				goto command
+			) else (
+				echo Press any key to continue.
+				pause > nul
+				goto gui
+			)
 ) else (
 	goto internetError
 )
@@ -1170,7 +1181,13 @@ if %errorlevel% == 0 (
 		echo Make sure that Microsoft Office 2013 is installed at the default location.
 		echo And then try again.[0m
 		echo.
-		goto command
+		if %cliMode%==1 (
+				goto command
+			) else (
+				echo Press any key to continue.
+				pause > nul
+				goto gui
+			)
 	)
 ) else (
 	goto internetError
@@ -1195,7 +1212,14 @@ if %errorlevel% == 0 (
 		echo Make sure that the Microsoft Office 2016/2019/2021 is installed at the default location.
 		echo And then try again.[0m
 		echo.
-		goto command
+		if %cliMode%==1 (
+				goto command
+			) else (
+				echo Press any key to continue.
+				pause > nul
+				goto gui
+			)
+
 	)
 ) else (
 	goto internetError
@@ -1226,7 +1250,16 @@ echo. >> %logFile%
 echo.
 echo Activation log file generated. Enter "activatepro show log" to see.
 echo.
-goto command
+if %cliMode%==1 (
+	goto command
+) else (
+	cls
+	echo [38;5;10mMicrosoft Office Activated Successfully![0m
+	echo.
+	echo Press any key to continue.
+	pause > nul
+	goto gui
+)
 
 
 
@@ -1270,89 +1303,6 @@ if "%os%" == "Microsoft Windows 11 Home" (
 ) else if "%os%" == "Microsoft Windows 10 Education N" (
 	goto education-n
 )
-
-REM Help Command Fuction
-
-:help
-
-REM Syntax Help
-echo.
-echo [38;5;15mUsage:	^<command^> [option][0m
-echo.
-
-REM General Commands
-echo ActivatePro General Commands:
-
-REM Clear Command Help
-echo		[38;5;15mclear						Clears the console[0m
-echo.
-
-REM Exit Command Help
-echo		[38;5;15mexit						exits the program[0m
-echo.
-
-REM Version Command Help
-echo ActivatePro Version Commands:
-echo 	[38;5;15mactivatepro version				Shows the current version of ActivatePro[0m
-echo.
-
-REM Version Command Options
-echo Command Options:
-echo 	[38;5;15mactivatepro [version ^| --version ^| -v][0m
-echo 	[38;5;15map 	    [version ^| --version ^| -v][0m
-echo.
-
-REM Log Command Help
-echo ActivatePro Log Commands:
-echo 	[38;5;15mactivatepro show log				Shows ActivatePro_log.txt[0m
-echo.
-
-REM Log Command Options
-echo Command Options:
-echo 	[38;5;15mactivatepro [show log ^| --log ^| -l][0m
-echo 	[38;5;15map 	    [show log ^| --log ^| -l][0m
-echo.
-
-REM Windows Activate Command Help
-echo Microsoft Windows Activation Commands:
-echo 	[38;5;15mactivate windows home				Activates Microsoft Windows Home[0m
-echo 	[38;5;15mactivate windows homeN				Activates Microsoft Windows Home N[0m
-echo 	[38;5;15mactivate windows pro				Activates Microsoft Windows Pro[0m
-echo 	[38;5;15mactivate windows proN				Activates Microsoft Windows Pro N[0m
-echo 	[38;5;15mactivate windows enterprise			Activates Microsoft Windows Enterprise[0m
-echo 	[38;5;15mactivate windows enterpriseN			Activates Microsoft Windows Enterprise N[0m
-echo 	[38;5;15mactivate windows education			Activates Microsoft Windows Education[0m
-echo 	[38;5;15mactivate windows educationN			Activates Microsoft Windows Education N[0m
-echo.
-
-
-
-REM Office Activate Command Help
-echo Microsoft Office Activation Commands:
-echo 	[38;5;15mactivate office14				Activates Microsoft Office 2010[0m
-echo 	[38;5;15mactivate office15				Activates Microsoft Office 2013[0m
-echo 	[38;5;15mactivate office16				Activates Microsoft Office 2016/2019/2021[0m
-echo.
-
-
-
-REM Auto Command Help
-echo Auto Activation Command:
-echo 	[38;5;15mactivate auto					Automatically detects installed Windows Edition and
-echo								MS Office installation and activates them.[0m
-echo.
-
-REM Help Command Help
-echo Take Help:
-echo 	[38;5;15mhelp						Shows this Help Screen[0m
-echo.
-echo Command Options:
-echo 	[38;5;15mactivatepro [help ^| --help ^| -h ^| /?][0m
-echo		[38;5;15map	    [help ^| --help ^| -h ^| /?][0m
-echo.
-
-REM Goto Command
-goto command
 
 
 
@@ -1422,6 +1372,103 @@ if exist "%programfiles(x86)%/Microsoft Office/Office14/ospp.vbs" (
 :officeInstall
 cls
 echo office
+pause
+
+
+
+REM Help Command Fuction
+
+:help
+
+REM Syntax Help
+echo.
+echo [38;5;15mUsage:	^<command^> [option][0m
+echo.
+
+REM General Commands
+echo ActivatePro General Commands:
+
+REM Clear Command Help
+echo		[38;5;15mclear						Clears the console[0m
+echo.
+
+REM Exit Command Help
+echo		[38;5;15mexit						Exits the program[0m
+echo.
+
+REM Version Command Help
+echo ActivatePro Version Commands:
+echo 	[38;5;15mactivatepro version				Shows the current version of ActivatePro[0m
+echo.
+
+REM Version Command Options
+echo Command Options:
+echo 	[38;5;15mactivatepro [version ^| --version ^| -v][0m
+echo 	[38;5;15map 	    [version ^| --version ^| -v][0m
+echo.
+
+REM Log Command Help
+echo ActivatePro Log Commands:
+echo 	[38;5;15mactivatepro show log				Shows ActivatePro_log.txt[0m
+echo.
+
+REM Log Command Options
+echo Command Options:
+echo 	[38;5;15mactivatepro [show log ^| --log ^| -l][0m
+echo 	[38;5;15map 	    [show log ^| --log ^| -l][0m
+echo.
+
+REM GUI Command Help
+echo ActivatePro GUI Commands:
+echo 	[38;5;15mgui						Starts the GUI environment of this program[0m
+echo.
+
+echo Command Options:
+echo 	[38;5;15mactivatepro [gui ^| --gui][0m
+echo 	[38;5;15map 	    [gui ^| --gui][0m
+echo.
+
+REM Windows Activate Command Help
+echo Microsoft Windows Activation Commands:
+echo 	[38;5;15mactivate windows home				Activates Microsoft Windows Home[0m
+echo 	[38;5;15mactivate windows homeN				Activates Microsoft Windows Home N[0m
+echo 	[38;5;15mactivate windows pro				Activates Microsoft Windows Pro[0m
+echo 	[38;5;15mactivate windows proN				Activates Microsoft Windows Pro N[0m
+echo 	[38;5;15mactivate windows enterprise			Activates Microsoft Windows Enterprise[0m
+echo 	[38;5;15mactivate windows enterpriseN			Activates Microsoft Windows Enterprise N[0m
+echo 	[38;5;15mactivate windows education			Activates Microsoft Windows Education[0m
+echo 	[38;5;15mactivate windows educationN			Activates Microsoft Windows Education N[0m
+echo.
+
+
+
+REM Office Activate Command Help
+echo Microsoft Office Activation Commands:
+echo 	[38;5;15mactivate office14				Activates Microsoft Office 2010[0m
+echo 	[38;5;15mactivate office15				Activates Microsoft Office 2013[0m
+echo 	[38;5;15mactivate office16				Activates Microsoft Office 2016/2019/2021[0m
+echo.
+
+
+
+REM Auto Command Help
+echo Auto Activation Command:
+echo 	[38;5;15mactivate auto					Automatically detects installed Windows Edition and
+echo								MS Office installation and activates them.[0m
+echo.
+
+REM Help Command Help
+echo Take Help:
+echo 	[38;5;15mhelp						Shows this Help Screen[0m
+echo.
+echo Command Options:
+echo 	[38;5;15mactivatepro [help ^| --help ^| -h ^| /?][0m
+echo		[38;5;15map	    [help ^| --help ^| -h ^| /?][0m
+echo.
+
+REM Goto Command
+goto command
+
 
 
 REM Internet Connection Error Message
