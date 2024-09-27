@@ -32,9 +32,9 @@ echo.
 echo.
 echo [38;5;14mUsage: activatepro ^| ap [options][0m
 echo.
-echo [38;5;14m-h		Shows help for this program[0m
-echo [38;5;14m--help		Shows help for this program[0m
-echo [38;5;14m--gui		Starts the GUI environment of this program[0m
+echo   [38;5;14m-h		Shows help for this program[0m
+echo   [38;5;14m--help	Shows help for this program[0m
+echo   [38;5;14m--gui		Starts the GUI environment of this program[0m
 echo.
 echo.
 
@@ -44,6 +44,7 @@ echo.
 
 :command                                                                         
 title ActivatePro 2.0
+set "autoMode=0"		REM Resetting Automode
 set /p "cmd=ActivatePro> "	REM Taking Input as a Command from User
 
 REM Expert Commands Working Function
@@ -208,7 +209,7 @@ if "%os%" == "Microsoft Windows 11 Home" (
 		slmgr /ato
 		echo Running: slmgr /ato >> %logFile%
 		echo.
-		echo [38;5;10mActivated Microsoft Windows successfully.[0m.
+		echo [38;5;10mActivated Microsoft Windows successfully.[0m
 		echo Activated Microsoft Windows successfully. >> %logFile%
 		echo. >> %logFile%
 		echo.
@@ -221,7 +222,7 @@ if "%os%" == "Microsoft Windows 11 Home" (
 				goto command
 			) else (
 				cls
-				echo [38;5;10mMicrosoft Windows Activated Successfully![0m
+				echo [38;5;10mMicrosoft Windows Activated Successfully.[0m
 				echo.
 				echo Press any key to continue.
 				pause > nul
@@ -259,7 +260,7 @@ if "%os%" == "Microsoft Windows 11 Home" (
 		slmgr /ato
 		echo Running: slmgr /ato >> %logFile%
 		echo.
-		echo [38;5;10mActivated Microsoft Windows successfully.[0m.
+		echo [38;5;10mActivated Microsoft Windows successfully.[0m
 		echo Activated Microsoft Windows successfully. >> %logFile%
 		echo. >> %logFile%
 		echo.
@@ -272,7 +273,7 @@ if "%os%" == "Microsoft Windows 11 Home" (
 				goto command
 			) else (
 				cls
-				echo [38;5;10mMicrosoft Windows Activated Successfully![0m
+				echo [38;5;10mMicrosoft Windows Activated Successfully.[0m
 				echo.
 				echo Press any key to continue.
 				pause > nul
@@ -327,7 +328,7 @@ if "%os%" == "Microsoft Windows 11 Home N" (
 		slmgr /ato
 		echo Running: slmgr /ato >> %logFile%
 		echo.
-		echo [38;5;10mActivated Microsoft Windows successfully.[0m.
+		echo [38;5;10mActivated Microsoft Windows successfully.[0m
 		echo Activated Microsoft Windows successfully. >> %logFile%
 		echo. >> %logFile%
 		echo.
@@ -340,7 +341,7 @@ if "%os%" == "Microsoft Windows 11 Home N" (
 				goto command
 			) else (
 				cls
-				echo [38;5;10mMicrosoft Windows Activated Successfully![0m
+				echo [38;5;10mMicrosoft Windows Activated Successfully.[0m
 				echo.
 				echo Press any key to continue.
 				pause > nul
@@ -378,7 +379,7 @@ if "%os%" == "Microsoft Windows 11 Home N" (
 		slmgr /ato
 		echo Running: slmgr /ato >> %logFile%
 		echo.
-		echo [38;5;10mActivated Microsoft Windows successfully.[0m.
+		echo [38;5;10mActivated Microsoft Windows successfully.[0m
 		echo Activated Microsoft Windows successfully. >> %logFile%
 		echo. >> %logFile%
 		echo.
@@ -391,7 +392,7 @@ if "%os%" == "Microsoft Windows 11 Home N" (
 				goto command
 			) else (
 				cls
-				echo [38;5;10mMicrosoft Windows Activated Successfully![0m
+				echo [38;5;10mMicrosoft Windows Activated Successfully.[0m
 				echo.
 				echo Press any key to continue.
 				pause > nul
@@ -446,7 +447,7 @@ if "%os%" == "Microsoft Windows 11 Pro" (
 		slmgr /ato
 		echo Running: slmgr /ato >> %logFile%
 		echo.
-		echo [38;5;10mActivated Microsoft Windows successfully.[0m.
+		echo [38;5;10mActivated Microsoft Windows successfully.[0m
 		echo Activated Microsoft Windows successfully. >> %logFile%
 		echo. >> %logFile%
 		echo.
@@ -459,7 +460,7 @@ if "%os%" == "Microsoft Windows 11 Pro" (
 				goto command
 			) else (
 				cls
-				echo [38;5;10mMicrosoft Windows Activated Successfully![0m
+				echo [38;5;10mMicrosoft Windows Activated Successfully.[0m
 				echo.
 				echo Press any key to continue.
 				pause > nul
@@ -497,7 +498,7 @@ if "%os%" == "Microsoft Windows 11 Pro" (
 		slmgr /ato
 		echo Running: slmgr /ato >> %logFile%
 		echo.
-		echo [38;5;10mActivated Microsoft Windows successfully.[0m.
+		echo [38;5;10mActivated Microsoft Windows successfully.[0m
 		echo Activated Microsoft Windows successfully. >> %logFile%
 		echo. >> %logFile%
 		echo.
@@ -510,7 +511,7 @@ if "%os%" == "Microsoft Windows 11 Pro" (
 				goto command
 			) else (
 				cls
-				echo [38;5;10mMicrosoft Windows Activated Successfully![0m
+				echo [38;5;10mMicrosoft Windows Activated Successfully.[0m
 				echo.
 				echo Press any key to continue.
 				pause > nul
@@ -566,7 +567,7 @@ if "%os%" == "Microsoft Windows 11 Pro N" (
 		slmgr /ato
 		echo Running: slmgr /ato >> %logFile%
 		echo.
-		echo [38;5;10mActivated Microsoft Windows successfully.[0m.
+		echo [38;5;10mActivated Microsoft Windows successfully.[0m
 		echo Activated Microsoft Windows successfully. >> %logFile%
 		echo. >> %logFile%
 		echo.
@@ -579,7 +580,7 @@ if "%os%" == "Microsoft Windows 11 Pro N" (
 				goto command
 			) else (
 				cls
-				echo [38;5;10mMicrosoft Windows Activated Successfully![0m
+				echo [38;5;10mMicrosoft Windows Activated Successfully.[0m
 				echo.
 				echo Press any key to continue.
 				pause > nul
@@ -617,7 +618,7 @@ if "%os%" == "Microsoft Windows 11 Pro N" (
 		slmgr /ato
 		echo Running: slmgr /ato >> %logFile%
 		echo.
-		echo [38;5;10mActivated Microsoft Windows successfully.[0m.
+		echo [38;5;10mActivated Microsoft Windows successfully.[0m
 		echo Activated Microsoft Windows successfully. >> %logFile%
 		echo. >> %logFile%
 		echo.
@@ -630,7 +631,7 @@ if "%os%" == "Microsoft Windows 11 Pro N" (
 				goto command
 			) else (
 				cls
-				echo [38;5;10mMicrosoft Windows Activated Successfully![0m
+				echo [38;5;10mMicrosoft Windows Activated Successfully.[0m
 				echo.
 				echo Press any key to continue.
 				pause > nul
@@ -685,7 +686,7 @@ if "%os%" == "Microsoft Windows 11 Enterprise" (
 		slmgr /ato
 		echo Running: slmgr /ato >> %logFile%
 		echo.
-		echo [38;5;10mActivated Microsoft Windows successfully.[0m.
+		echo [38;5;10mActivated Microsoft Windows successfully.[0m
 		echo Activated Microsoft Windows successfully. >> %logFile%
 		echo. >> %logFile%
 		echo.
@@ -698,7 +699,7 @@ if "%os%" == "Microsoft Windows 11 Enterprise" (
 				goto command
 			) else (
 				cls
-				echo [38;5;10mMicrosoft Windows Activated Successfully![0m
+				echo [38;5;10mMicrosoft Windows Activated Successfully.[0m
 				echo.
 				echo Press any key to continue.
 				pause > nul
@@ -736,7 +737,7 @@ if "%os%" == "Microsoft Windows 11 Enterprise" (
 		slmgr /ato
 		echo Running: slmgr /ato >> %logFile%
 		echo.
-		echo [38;5;10mActivated Microsoft Windows successfully.[0m.
+		echo [38;5;10mActivated Microsoft Windows successfully.[0m
 		echo Activated Microsoft Windows successfully. >> %logFile%
 		echo. >> %logFile%
 		echo.
@@ -749,7 +750,7 @@ if "%os%" == "Microsoft Windows 11 Enterprise" (
 				goto command
 			) else (
 				cls
-				echo [38;5;10mMicrosoft Windows Activated Successfully![0m
+				echo [38;5;10mMicrosoft Windows Activated Successfully.[0m
 				echo.
 				echo Press any key to continue.
 				pause > nul
@@ -804,7 +805,7 @@ if "%os%" == "Microsoft Windows 11 Enterprise N" (
 		slmgr /ato
 		echo Running: slmgr /ato >> %logFile%
 		echo.
-		echo [38;5;10mActivated Microsoft Windows successfully.[0m.
+		echo [38;5;10mActivated Microsoft Windows successfully.[0m
 		echo Activated Microsoft Windows successfully. >> %logFile%
 		echo. >> %logFile%
 		echo.
@@ -817,7 +818,7 @@ if "%os%" == "Microsoft Windows 11 Enterprise N" (
 				goto command
 			) else (
 				cls
-				echo [38;5;10mMicrosoft Windows Activated Successfully![0m
+				echo [38;5;10mMicrosoft Windows Activated Successfully.[0m
 				echo.
 				echo Press any key to continue.
 				pause > nul
@@ -855,7 +856,7 @@ if "%os%" == "Microsoft Windows 11 Enterprise N" (
 		slmgr /ato
 		echo Running: slmgr /ato >> %logFile%
 		echo.
-		echo [38;5;10mActivated Microsoft Windows successfully.[0m.
+		echo [38;5;10mActivated Microsoft Windows successfully.[0m
 		echo Activated Microsoft Windows successfully. >> %logFile%
 		echo. >> %logFile%
 		echo.
@@ -868,7 +869,7 @@ if "%os%" == "Microsoft Windows 11 Enterprise N" (
 				goto command
 			) else (
 				cls
-				echo [38;5;10mMicrosoft Windows Activated Successfully![0m
+				echo [38;5;10mMicrosoft Windows Activated Successfully.[0m
 				echo.
 				echo Press any key to continue.
 				pause > nul
@@ -923,7 +924,7 @@ if "%os%" == "Microsoft Windows 11 Education" (
 		slmgr /ato
 		echo Running: slmgr /ato >> %logFile%
 		echo.
-		echo [38;5;10mActivated Microsoft Windows successfully.[0m.
+		echo [38;5;10mActivated Microsoft Windows successfully.[0m
 		echo Activated Microsoft Windows successfully. >> %logFile%
 		echo. >> %logFile%
 		echo.
@@ -936,7 +937,7 @@ if "%os%" == "Microsoft Windows 11 Education" (
 				goto command
 			) else (
 				cls
-				echo [38;5;10mMicrosoft Windows Activated Successfully![0m
+				echo [38;5;10mMicrosoft Windows Activated Successfully.[0m
 				echo.
 				echo Press any key to continue.
 				pause > nul
@@ -974,7 +975,7 @@ if "%os%" == "Microsoft Windows 11 Education" (
 		slmgr /ato
 		echo Running: slmgr /ato >> %logFile%
 		echo.
-		echo [38;5;10mActivated Microsoft Windows successfully.[0m.
+		echo [38;5;10mActivated Microsoft Windows successfully.[0m
 		echo Activated Microsoft Windows successfully. >> %logFile%
 		echo. >> %logFile%
 		echo.
@@ -987,7 +988,7 @@ if "%os%" == "Microsoft Windows 11 Education" (
 				goto command
 			) else (
 				cls
-				echo [38;5;10mMicrosoft Windows Activated Successfully![0m
+				echo [38;5;10mMicrosoft Windows Activated Successfully.[0m
 				echo.
 				echo Press any key to continue.
 				pause > nul
@@ -1042,7 +1043,7 @@ if "%os%" == "Microsoft Windows 11 Education N" (
 		slmgr /ato
 		echo Running: slmgr /ato >> %logFile%
 		echo.
-		echo [38;5;10mActivated Microsoft Windows successfully.[0m.
+		echo [38;5;10mActivated Microsoft Windows successfully.[0m
 		echo Activated Microsoft Windows successfully. >> %logFile%
 		echo. >> %logFile%
 		echo.
@@ -1055,7 +1056,7 @@ if "%os%" == "Microsoft Windows 11 Education N" (
 				goto command
 			) else (
 				cls
-				echo [38;5;10mMicrosoft Windows Activated Successfully![0m
+				echo [38;5;10mMicrosoft Windows Activated Successfully.[0m
 				echo.
 				echo Press any key to continue.
 				pause > nul
@@ -1093,7 +1094,7 @@ if "%os%" == "Microsoft Windows 11 Education N" (
 		slmgr /ato
 		echo Running: slmgr /ato >> %logFile%
 		echo.
-		echo [38;5;10mActivated Microsoft Windows successfully.[0m.
+		echo [38;5;10mActivated Microsoft Windows successfully.[0m
 		echo Activated Microsoft Windows successfully. >> %logFile%
 		echo. >> %logFile%
 		echo.
@@ -1106,7 +1107,7 @@ if "%os%" == "Microsoft Windows 11 Education N" (
 				goto command
 			) else (
 				cls
-				echo [38;5;10mMicrosoft Windows Activated Successfully![0m
+				echo [38;5;10mMicrosoft Windows Activated Successfully.[0m
 				echo.
 				echo Press any key to continue.
 				pause > nul
@@ -1244,7 +1245,7 @@ cscript ospp.vbs /dstatus
 echo Running: cscript ospp.vbs /dstatus >> %logFile%
 cscript ospp.vbs /dstatus >> %logFile
 echo.
-echo [38;5;10mActivated Microsoft Office successfully.[0m
+echo [38;5;10mActivated Microsoft Office successfully^![0m
 echo Activated Microsoft Office successfully. >> %logFile%
 echo. >> %logFile%
 echo.
@@ -1254,7 +1255,7 @@ if %cliMode%==1 (
 	goto command
 ) else (
 	cls
-	echo [38;5;10mMicrosoft Office Activated Successfully![0m
+	echo [38;5;10mMicrosoft Office Activated Successfully.[0m
 	echo.
 	echo Press any key to continue.
 	pause > nul
@@ -1264,7 +1265,7 @@ if %cliMode%==1 (
 
 
 :auto
-echo Getting OS Info...
+echo Detecting installed Windows edition...
 timeout /t 3 > nul
 for /f "tokens=2 delims==" %%i in ('wmic os get caption /value') do set os=%%i
 echo OS Detected: [38;5;15m%os%[0m
@@ -1307,8 +1308,8 @@ if "%os%" == "Microsoft Windows 11 Home" (
 
 
 :officeAuto
-choice /c YN -m "Do you want to activate Microsoft Office too?(y/n): "
-if %errorlevel% == 1 (
+set /p "choice=Do you want to activate Microsoft Office?(y/[1mn[0m): "
+if %choice% == y (
 	echo Checking if the computer is connected to the internet. >> %logFile%
 	echo Running: ping google.com -n 4 > nul >> %logFile%
 	ping google.com -n 4 > nul
@@ -1317,7 +1318,7 @@ if %errorlevel% == 1 (
 	) else (
 		goto internetError
 	)
-) else if %errorlevel% == 2 (
+) else (
 	set "autoMode=0"
 	if %cliMode% == 1 (
 		goto command
@@ -1360,7 +1361,7 @@ if exist "%programfiles(x86)%/Microsoft Office/Office14/ospp.vbs" (
 	echo [38;5;196mError: Microsoft Office not found!
 	echo Couldn't find any supported Microsoft Office Installation.[0m
 	echo.
-	set /p "ins=Do you want to install Microsoft Office for Free?(y/n): "
+	set /p "ins=Do you want to install Microsoft Office for Free?(y/[1mn[0m): "
 	if %choice% == "y" (
 		goto officeInstall
 	) else (
@@ -1471,29 +1472,6 @@ echo.
 
 REM Goto Command
 goto command
-
-
-
-REM Internet Connection Error Message
-:internetError
-timeout /t 3 > nul
-if %cliMode%==1 (
-	echo [38;5;196mError: Couldn't connect to the internet.
-	echo Make sure you have an active internet connection and then try again.[0m
-	echo.
-	goto command
-) else (
-	cls
-	echo [38;5;196mError: Couldn't connect to the internet.
-	echo Make sure you have an active internet connection and then try again.[0m
-	echo.
-	echo Press any key to continue!
-	pause > nul
-	goto gui
-)
-echo Error: Couldn't connect to the internet. >> %logFile%
-echo Make sure you have an active internet connection and then try again. >> %logFile%
-echo. >> %logFile%
 
 
 
@@ -1784,8 +1762,9 @@ goto officeMenu
 
 
 
+REM Autopilot Function
 :guiAuto
-chcp 6501 > nul
+chcp 65001 > nul
 cls
 echo.
 
@@ -1797,4 +1776,28 @@ echo				    	██║  ██║╚██████╔╝   ██║   ╚�
 echo				    	╚═╝  ╚═╝ ╚═════╝    ╚═╝    ╚═════╝ ╚═╝     ╚═╝╚══════╝ ╚═════╝    ╚═╝                                                                     
 echo.
 echo.
+set "autoMode=1"
 goto auto
+
+
+
+REM Internet Connection Error Message
+:internetError
+timeout /t 3 > nul
+if %cliMode%==1 (
+	echo [38;5;196mError: Couldn't connect to the internet.
+	echo Make sure you have an active internet connection and then try again.[0m
+	echo.
+	goto command
+) else (
+	cls
+	echo [38;5;196mError: Couldn't connect to the internet.
+	echo Make sure you have an active internet connection and then try again.[0m
+	echo.
+	echo Press any key to continue!
+	pause > nul
+	goto gui
+)
+echo Error: Couldn't connect to the internet. >> %logFile%
+echo Make sure you have an active internet connection and then try again. >> %logFile%
+echo. >> %logFile%
