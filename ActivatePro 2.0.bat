@@ -45,7 +45,7 @@ echo.
 :command                                                                         
 title ActivatePro 2.0
 set "autoMode=0"		REM Resetting Automode
-set /p "cmd=ActivatePro> "	REM Taking Input as a Command from User
+set /p "cmd=[1mActivatePro>[0m "	REM Taking Input as a Command from User
 
 REM Expert Commands Working Function
 if "%cmd%"=="" (
@@ -1381,6 +1381,8 @@ if exist "%programfiles(x86)%/Microsoft Office/Office14/ospp.vbs" (
 
 
 :officeInstall
+echo.
+timeout /t 2 > nul
 echo This Microsoft Office 2021 Pro Plus package contains
 echo Word, Excel Powerpoint, Outlook and OneNote.
 echo To add or remove any app to this package edit the configuration.xml located in sources.
