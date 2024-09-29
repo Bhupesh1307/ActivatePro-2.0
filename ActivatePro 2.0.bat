@@ -163,6 +163,8 @@ if "%cmd%"=="" (
 ) else if "%cmd%"=="activate auto" (
 	set "autoMode=1"
 	goto auto
+) else if "%cmd%"=="install office" (
+	goto officeInstall
 ) else if "%cmd%"=="clear" (
 	cls
 	goto command
@@ -1379,11 +1381,34 @@ if exist "%programfiles(x86)%/Microsoft Office/Office14/ospp.vbs" (
 
 
 :officeInstall
-cls
-echo office
-pause
-
-
+echo This Microsoft Office 2021 Pro Plus package contains
+echo Word, Excel Powerpoint, Outlook and OneNote.
+echo To add or remove any app to this package edit the configuration.xml located in sources.
+echo Press any key to begin the installation...
+pause > nul
+echo.
+timeout /t 2 > nul
+echo. >> %logFile%
+echo Checking if the computer is connected to the internet. >> %logFile%
+echo Running: ping google.com -n 4 > nul >> %logFile%
+ping google.com -n 4 > nul
+if %errorlevel% == 0 (
+	title Installing MS Office...
+	cd sources
+	echo Downloading files for the installation...
+	echo Downloading files for the installation... >> %logFile%
+	setup /download configuration.xml
+	echo Running: setup /download configuration.xml >> %logFile%
+	echo Starting the installation...
+	echo Starting the installation... >> %logFile%
+	setup /configure configuration.xml
+	echo Running: setup /configure configuration.xml >> %logFile%
+	echo.
+	cd ..
+	goto command
+) else (
+	goto internetError
+)
 
 REM Help Command Fuction
 
