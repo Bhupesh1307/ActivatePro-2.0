@@ -1292,7 +1292,7 @@ if %cliMode%==1 (
 	goto command
 ) else (
 	cls
-	echo [38;5;10mMicrosoft Office Activation process done with code 0^`[0m
+	echo [38;5;10mMicrosoft Office Activation process done with code 0^`:[0m
 	echo.
 	echo Press any key to continue.
 	pause > nul
