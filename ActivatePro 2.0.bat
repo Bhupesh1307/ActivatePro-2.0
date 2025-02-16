@@ -1282,7 +1282,7 @@ cscript ospp.vbs /dstatus
 echo Running: cscript ospp.vbs /dstatus >> %logFile%
 cscript ospp.vbs /dstatus >> %logFile
 echo.
-echo [38;5;10mMicrosoft Office Activation process done with code 0^![0m
+echo [38;5;10mMicrosoft Office Activation process done with code 0^[0m
 echo Microsoft Office Activation process done with code 0 >> %logFile%
 echo. >> %logFile%
 echo.
@@ -1292,7 +1292,7 @@ if %cliMode%==1 (
 	goto command
 ) else (
 	cls
-	echo [38;5;10mMicrosoft Office Activation process done with code 0^`:[0m
+	echo [38;5;10mMicrosoft Office Activation process done with code 0^[0m
 	echo.
 	echo Press any key to continue.
 	pause > nul
